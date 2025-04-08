@@ -38,7 +38,8 @@
         "bluetooth",
         "custom/clipboard",
         "pulseaudio",
-        "group/network", 
+        "group/network",
+        "custom/notify",
         "group/power"
     ],
 

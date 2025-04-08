@@ -105,8 +105,8 @@
         // },
         "format-icons": {
             // for arch
-            "active": "<span font='14'></span>",
-            // "default": ""
+            "active": "󰊠",
+            "default": "󰮊"
 
             // for fedora
             //  "active": "󰣛",  
@@ -141,7 +141,7 @@
         "tooltip-format": " {used:0.1f}GB/{total:0.1f}GB"
     },
 
-    // dik
+    // disk
     "disk": {
         "interval": 30,
         "format": " {free}",

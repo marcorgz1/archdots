@@ -1,0 +1,311 @@
+* {
+  border: none;
+  border-radius: 0;
+  font-family: "JetBrainsMono Nerd Font", "MesloLGS Nerd Font", "Font Awesome";
+  font-weight: bold;
+  font-size: 14px;
+  min-height: 36px;
+}
+
+@import "style/mocha.css";
+
+window#waybar {
+  background-color: @base2;
+  border-radius: 14px;
+}
+
+tooltip {
+  background: @crust;
+  opacity: 1;
+  border-radius: 10px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: @sapphire;
+}
+
+tooltip label {
+  font-size: 16px;
+  color: @blue;
+}
+
+#workspaces button {
+  padding: 5px;
+  color: @subtext0;
+  margin-right: 5px;
+}
+
+#workspaces button.active {
+  color: @white;
+}
+
+#workspaces button.focused {
+  color: @rosewater;
+  border-radius: 15px;
+}
+
+#workspaces button.urgent {
+  color: #11111b;
+  background: @gray;
+  border-radius: 15px;
+}
+
+#workspaces button:hover {
+  background: @crust;
+  color: @flamingo;
+  border-radius: 15px;
+}
+
+#custom-menu,
+#custom-lock_screen,
+#custom-power,
+#custom-reboot,
+#custom-logout,
+#custom-lock,
+#custom-updater,
+#sysinfo,
+#custom-spotify,
+#custom-cava,
+#window,
+#taskbar,
+#cpu,
+#disk,
+#idle_inhibitor,
+#custom-clipboard,
+#memory,
+#clock,
+#pulseaudio,
+#network,
+#bluetooth,
+#tray,
+#temperature,
+#workspaces,
+#battery,
+#mpris,
+#custom-nightlight,
+#backlight {
+  background: @gray;
+  opacity: 1;
+  padding: 0px 12px;
+  margin: 4px 0px;
+}
+
+#custom-system {
+  color: @yellow;
+  padding: 0 15px;
+  margin: 3px 0;
+}
+
+#custom-cava {
+  color: @blue;
+  margin: 3px 0;
+}
+
+#bluetooth {
+  color: @white;
+  background-color: @gray;
+  border-radius: 16px;
+  font-size: 18px;
+}
+
+#taskbar {
+  background: @gray;
+  border-radius: 12px;
+}
+
+#memory,
+#cpu,
+#disk,
+#temperature {
+  background-color: transparent;
+}
+
+#temperature {
+  color: @rosewater;
+}
+
+#memory {
+  color: @teal;
+}
+
+#cpu {
+  padding-left: 15px;
+}
+
+#disk {
+  color: @blue;
+  margin-right: -5px;
+}
+
+#idle_inhibitor {
+  font-size: 15px;
+  padding: 0 15px;
+  background: @gray;
+  color: @pink;
+  border-radius: 16px;
+  margin-right: 0px;
+}
+
+#custom-spotify {
+  color: @white;
+  border-radius: 15px 0 0 15px;
+}
+
+#custom-nightlight {
+  border-radius: 0;
+  color: @peach;
+}
+
+#battery {
+  color: #a6e3a1;
+  background-color: @crust;
+  margin-right: 0;
+  font-size: 16px;
+  padding-left: 15px;
+  border-radius: 15px 0 0 15px;
+}
+
+@keyframes blink {
+  to {
+    background-color: #ffffff;
+    color: #333333;
+  }
+}
+
+#battery.critical:not(.charging) {
+  color: #f53c3c;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#custom-clipboard {
+  border-radius: 0 15px 15px 0;
+  font-size: 14px;
+  color: @white;
+  padding-right: 10px;
+}
+
+#custom-reboot,
+#custom-logout,
+#custom-lock,
+#custom-power {
+  color: @blue;
+  background: transparent;
+  padding: 0 16px;
+  margin-right: 10px;
+  border-radius: 0 8px 8px 0;
+  font-size: 15px;
+  font-weight: bolder;
+  border-left: 0;
+}
+
+#network {
+  color: @white;
+  font-size: 15px;
+  border-radius: 8px;
+}
+
+#custom-updater {
+  border-radius: 15px;
+  padding: 0 15px;
+  margin-right: 10px;
+  border-right: 0px;
+  color: @teal;
+}
+
+#backlight {
+  background-color: @crust;
+  color: @flamingo;
+  padding: 0 5px;
+  font-size: 16px;
+  border-radius: 0 15px 15px 0;
+}
+
+#custom-lock_screen {
+  border-radius: 15px;
+  padding-right: 13px;
+}
+
+#tray {
+  margin-right: 14px;
+}
+
+#disk {
+  border-radius: 0px 15px 15px 0px;
+  margin-right: 10px;
+}
+
+#temperature.critical {
+  color: #e92d4d;
+}
+
+#workspaces {
+  padding-right: 15px;
+  padding-left: 15px;
+  border-radius: 15px;
+}
+
+#custom-power_profile {
+  color: #a6e3a1;
+  border-left: 0px;
+  border-right: 0px;
+}
+
+#window {
+  color: @white;
+  background-color: @gray;
+  border-radius: 0 15px 15px 0;
+  margin-left: 0px;
+  margin-right: 10px;
+  padding-right: 15px;
+}
+
+#custom-menu {
+  color: @blue;
+  margin-left: 10px;
+  margin-right: 0px;
+  padding: 0 15px;
+  padding-right: 20px;
+  font-size: 15px;
+  border-radius: 15px 0 0 15px;
+}
+
+#clock {
+  color: @white;
+  background-color: @gray;
+  border-radius: 15px;
+  margin-right: 10px;
+  margin-left: 10px;
+  padding: 0 20px;
+  font-size: 14px;
+}
+
+#pulseaudio {
+  color: @white;
+  background-color: @gray;
+  border-right: 0px;
+  border-radius: 15px 0 0 15px;
+}
+
+#pulseaudio.microphone {
+  color: @maroon;
+  background-color: @gray;
+  margin-right: 10px;
+  border-left: 0px;
+  border-right: 0px;
+  border-radius: 0 15px 15px 0;
+}
+
+#pulseaudio slider {
+  min-height: 16px;
+  min-width: 80px;
+  border-radius: 10px;
+  background-color: #3a3a3a;
+}
+
+#pulseaudio slider trough highlight {
+  background-color: #5294e2;
+  border-radius: 10px;
+}

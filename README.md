@@ -1,6 +1,6 @@
 # archdots
 
-My personal dotfiles fro Hyprland on Arch Linux.
+My personal dotfiles for Hyprland on Arch Linux.
 
 ![Dotfiles first screenshot](./assets/rice1.png)
 <br />

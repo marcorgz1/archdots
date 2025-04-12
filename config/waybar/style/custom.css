@@ -3,8 +3,8 @@
   border-radius: 0;
   font-family: "JetBrainsMono Nerd Font", "MesloLGS Nerd Font", "Font Awesome";
   font-weight: bold;
-  font-size: 16px;
-  min-height: 36px;
+  font-size: 14px;
+  min-height: 28px;
 }
 
 @import "style/mocha.css";
@@ -29,30 +29,31 @@ tooltip label {
 }
 
 #workspaces button {
-  padding: 5px;
-  color: @subtext0;
+  padding: 6px;
+  color: @lavender;
   margin-right: 5px;
+  border-radius: 6px;
 }
 
 #workspaces button.active {
   color: @white;
+  background: #3b4252;
+  font-weight: 600;
 }
 
 #workspaces button.focused {
   color: @rosewater;
-  border-radius: 15px;
+  background: transparent;
 }
 
 #workspaces button.urgent {
   color: #11111b;
   background: @gray;
-  border-radius: 15px;
 }
 
 #workspaces button:hover {
-  background: @crust;
+  background: transparent;
   color: @flamingo;
-  border-radius: 15px;
 }
 
 #custom-menu,
@@ -65,6 +66,7 @@ tooltip label {
 #sysinfo,
 #custom-spotify,
 #custom-cava,
+#custom-swaync,
 #window,
 #taskbar,
 #cpu,
@@ -187,7 +189,7 @@ tooltip label {
   padding-right: 10px;
 }
 
-#custom-notify {
+#custom-swaync {
   background: transparent;
   padding: 0 12px;
 }

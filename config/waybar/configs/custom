@@ -28,18 +28,15 @@
     ],
 
     "modules-center": [
-        "clock",
-        "custom/separator#blank",
-        "wlr/taskbar"
+        "clock"
     ],
 
     "modules-right": [        
         "tray",
         "bluetooth",
-        "custom/clipboard",
         "pulseaudio",
         "group/network",
-        "custom/notify",
+        "custom/swaync",
         "group/power"
     ],
 

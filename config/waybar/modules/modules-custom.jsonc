@@ -25,10 +25,10 @@
         "tooltip": false
     },
 
-    // notify using dunst ( haven't add in the waybar )
-    "custom/notify": {
+    // notify using swaync
+    "custom/swaync": {
       // "format": "{icon} {}",
-        "format": "{} {icon}", // TODO: workaround for the module not showing up // revert when fixed
+        "format": "{icon}", // TODO: workaround for the module not showing up // revert when fixed
         "format-icons": {
             "email-notification": "<span foreground='white'><sup></sup></span>",
             "chat-notification": "󱋊<span foreground='white'><sup></sup></span>",
@@ -42,17 +42,12 @@
             "none": ""
         },
         "return-type": "json",
-        "exec-if": "which dunstctl",
-        "exec": "$HOME/.config/hypr/scripts/notifications.py",
-        "on-scroll-down": "sleep 0.1 && dunstctl history-pop",
-        "on-click": "dunstctl set-paused toggle",
-        "on-click-middle": "dunstctl history-clear",
-        "on-click-right": "dunstctl close-all",
-        "interval": 1,
-        "tooltip": true,
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t sw",
+        "on-click-right": "swaync-client -d -sw",
         "escape": true
-    },
-
+    },        
 
     // System updater ( works for arch, fedora and opensuse also. )
     "custom/updater": {

@@ -34,7 +34,8 @@
     "modules-right": [        
         "tray",
         "bluetooth",
-        "pulseaudio",
+        "pulseaudio#audio",
+        "pulseaudio/slider",
         "group/network",
         "custom/swaync",
         "group/power"

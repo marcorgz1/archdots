@@ -76,6 +76,7 @@ tooltip label {
 #memory,
 #clock,
 #pulseaudio,
+#pulseaudio-slider,
 #network,
 #bluetooth,
 #tray,
@@ -305,14 +306,24 @@ tooltip label {
   border-radius: 0 15px 15px 0;
 }
 
-#pulseaudio slider {
-  min-height: 16px;
-  min-width: 80px;
-  border-radius: 10px;
-  background-color: #3a3a3a;
+#pulseaudio-slider slider {
+  min-height: 15px;
+  min-width: 7px;
+  opacity: 0;
+  background-color: @text;
+  border-radius: 3px;
+  box-shadow: 1px 5px 6px 1px #272727;
 }
 
-#pulseaudio slider trough highlight {
-  background-color: #5294e2;
-  border-radius: 10px;
+#pulseaudio-slider trough {
+  min-width: 100px;
+  min-height: 12px;
+  border-radius: 5px;
+  background-color: @surface0;
+}
+
+#pulseaudio-slider highlight {
+  min-height: 5px;
+  border-radius: 5px;
+  background-color: @blue;
 }

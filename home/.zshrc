@@ -1,3 +1,9 @@
+. "$HOME/.atuin/bin/env"
+
+eval "$(zoxide init zsh)"
+eval "$(atuin init zsh)"
+eval "$(starship init zsh)"
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
@@ -71,16 +77,14 @@ alias pnpm dev='pnpm run dev'
 
 alias ff='fastfetch --config custom'
 alias cf='customfetch'
+alias nh='nitch'
 
 # System info
 fastfetch --config custom
-customfetch
-
-. "$HOME/.atuin/bin/env"
-
-eval "$(zoxide init zsh)"
-eval "$(atuin init zsh)"
-eval "$(starship init zsh)"
+# Thundery (weather info)
+thundery
+# customfetch
+nitch
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -95,3 +99,5 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+export PATH=$PATH:/home/marco1/.spicetify

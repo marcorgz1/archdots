@@ -1,30 +1,30 @@
-@define-color rosewater #f5e0dc;
-@define-color flamingo #f2cdcd;
-@define-color pink #f5c2e7;
-@define-color mauve #cba6f7;
-@define-color red #f38ba8;
-@define-color maroon #eba0ac;
-@define-color peach #fab387;
-@define-color yellow #f9e2af;
-@define-color green #a6e3a1;
-@define-color teal #94e2d5;
-@define-color sky #89dceb;
-@define-color sapphire #74c7ec;
-@define-color blue #89b4fa;
-@define-color lavender #b4befe;
-@define-color text #cdd6f4;
-@define-color subtext1 #bac2de;
-@define-color subtext0 #a6adc8;
-@define-color overlay2 #9399b2;
-@define-color overlay1 #7f849c;
-@define-color overlay0 #6c7086;
-@define-color surface2 #585b70;
-@define-color surface1 #45475a;
-@define-color surface0 #313244;
-@define-color base #1e1e2e;
-@define-color base2 #171822;
-@define-color mantle #181825;
-@define-color crust #11111b;
-@define-color white #ffffff;
-@define-color gray #202032;
-@define-color black #000000;
+@define-color base #2e3440; /* nord0 - dark background */
+@define-color mantle #3b4252; /* nord1 - slightly lighter background */
+@define-color crust #2e3440; /* nord0 - darkest background */
+@define-color surface0 #434c5e; /* nord2 - surface color */
+@define-color surface1 #4c566a; /* nord3 - lighter surface */
+@define-color surface2 #4c566a; /* nord3 - lighter surface */
+@define-color overlay0 #4c566a; /* nord3 - overlay color */
+@define-color overlay1 #5e81ac; /* nord10 - darker frost */
+@define-color overlay2 #81a1c1; /* nord9 - medium frost */
+@define-color text #eceff4; /* nord6 - primary text color */
+@define-color subtext0 #e5e9f0; /* nord5 - secondary text */
+@define-color subtext1 #d8dee9; /* nord4 - tertiary text */
+@define-color blue #81a1c1; /* nord9 - blue */
+@define-color lavender #b48ead; /* nord15 - light purple */
+@define-color sapphire #88c0d0; /* nord8 - cyan */
+@define-color sky #88c0d0; /* nord8 - light blue */
+@define-color teal #8fbcbb; /* nord7 - teal */
+@define-color green #a3be8c; /* nord14 - green */
+@define-color yellow #ebcb8b; /* nord13 - yellow */
+@define-color peach #d08770; /* nord12 - orange */
+@define-color maroon #bf616a; /* nord11 - darker red */
+@define-color red #bf616a; /* nord11 - red */
+@define-color mauve #b48ead; /* nord15 - purple */
+@define-color pink #b48ead; /* nord15 - lighter purple */
+@define-color flamingo #b48ead; /* nord15 - pinkish purple */
+@define-color rosewater #d8dee9; /* nord4 - very light lavender */
+@define-color white #eceff4; /* nord6 - nearly white */
+@define-color gray #4c566a; /* nord3 - medium gray */
+@define-color black #2e3440; /* nord0 - nearly black */
+@define-color base2 #3b4252; /* nord1 - dark base alternative */

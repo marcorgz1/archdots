@@ -4,7 +4,7 @@
   font-family: "JetBrainsMono Nerd Font", "MesloLGS Nerd Font", "Font Awesome";
   font-weight: bold;
   font-size: 14px;
-  min-height: 28px;
+  min-height: 8px;
 }
 
 @import "style/mocha.css";
@@ -317,7 +317,7 @@ tooltip label {
 
 #pulseaudio-slider trough {
   min-width: 100px;
-  min-height: 12px;
+  min-height: 7px;
   border-radius: 5px;
   background-color: @surface0;
 }

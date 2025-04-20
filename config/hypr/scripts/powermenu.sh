@@ -3,7 +3,7 @@
 # Current Theme
 main_dir="$HOME/.config/rofi"
 dir="$main_dir/power_option"
-theme='fullscreen'
+theme='small'
 
 # CMDs
 uptime="$(awk '{printf "%d hour, %d minutes\n", $1/3600, ($1%3600)/60}' /proc/uptime)"

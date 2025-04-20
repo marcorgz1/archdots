@@ -20,9 +20,9 @@ printf "\n  => Choose which settings you want to change\n  -> Need to select usi
 echo
 _hyprland_choice=$(gum choose \
     --header "Select settings:" \
-    --header.foreground "#c1c1c2" \
+    --header.foreground "#c6c6c8" \
     --no-limit \
-    --cursor.foreground "#c1c1c2" \
+    --cursor.foreground "#c6c6c8" \
     "border size" \
     "roundness" \
     "inner gap" \

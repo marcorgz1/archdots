@@ -2,14 +2,15 @@
   border: none;
   font-family: "JetBrainsMono Nerd Font", "MesloLGS Nerd Font", "Font Awesome";
   font-weight: bold;
-  font-size: 16px;
+  font-size: 18px;
 }
 
-@import "style/mocha.css";
+@import "style/nord.css";
 @import "style/theme.css";
 
 window#waybar {
   background-color: @background;
+  border: 2px solid @white;
   border-radius: 12px;
 }
 
@@ -76,7 +77,7 @@ tooltip label {
 #backlight {
   background: transparent;
   opacity: 1;
-  padding: 10px 8px;
+  padding: 10px 16px;
 }
 
 #idle_inhibitor {
@@ -134,11 +135,10 @@ tooltip label {
   border-radius: 15px;
   font-size: 15px;
   font-weight: bolder;
-  padding-left: 1px;
 }
 
 #custom-power {
-  padding-bottom: 20px;
+  padding-bottom: 24px;
 }
 
 #network {

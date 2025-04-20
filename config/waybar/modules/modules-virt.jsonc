@@ -61,7 +61,6 @@
     // window
     "hyprland/window": {
         "format": "{}",
-        "separate-outputs": true,
         "rotate": 270,
         "rewrite": {
             "(.*)${USER}@${set_sysname}:(.*)": "$1  :$2",
@@ -95,6 +94,9 @@
         "on-scroll-up": "hyprctl dispatch workspace e-1",
         "on-scroll-down": "hyprctl dispatch workspace e+1",
         "format": "{icon}",
+        "format-icons": {
+            "active": "󰊠"
+        },
         "persistent-workspaces": {
             "1": [],
             "2": [],

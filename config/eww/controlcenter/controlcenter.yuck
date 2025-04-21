@@ -1,0 +1,245 @@
+;;===========================================================================
+;;
+;;
+;;███╗   ███╗ █████╗ ██████╗ ██╗ ██████╗ ██████╗ ██████╗  ██████╗ ███╗   ███╗
+;;████╗ ████║██╔══██╗██╔══██╗██║██╔═══██╗██╔══██╗██╔══██╗██╔═══██╗████╗ ████║
+;;██╔████╔██║███████║██████╔╝██║██║   ██║██████╔╝██████╔╝██║   ██║██╔████╔██║
+;;██║╚██╔╝██║██╔══██║██╔══██╗██║██║   ██║██╔══██╗██╔══██╗██║   ██║██║╚██╔╝██║
+;;██║ ╚═╝ ██║██║  ██║██║  ██║██║╚██████╔╝██║  ██║██║  ██║╚██████╔╝██║ ╚═╝ ██║
+;;╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝ ╚═════╝ ╚═╝  ╚═╝ ╚═╝ ╚═╝ ╚═════╝ ╚═╝     ╚═╝                                                                          
+;;                          MarioRRom's Dotfiles
+;;                 https://github.com/MarioRRom/bspwm-dotfiles
+;;===========================================================================
+
+
+;;  .------------------------.
+;;  | .--------------------. |
+;;  | |     Variables      | |
+;;  | `--------------------' |
+;;  `------------------------'
+
+;; Internet
+(defpoll NETICON :interval "5s" "Network --icono")
+(defpoll NETNAME :interval "5s" "Network --nombre")
+(defpoll MODOAVION :interval "5s" "nmcli radio wifi")
+
+;; No Molestar
+(defpoll NOMOLESTAR :interval "20s" "dunstctl is-paused")
+
+;; Luz Nocturna
+(defpoll LUZNOCTURNA :interval "20s" "LuzNocturna --status")
+
+;; Barras de control
+(defpoll GETVOLUME :interval "20s" :initial "50" "Volume --get")
+(defpoll GETICONVOLUME :interval "1s" :initial "󰕾" "Volume --icon")
+(defpoll GETMICRO :interval "20s" :initial "50" "Microphone --get")
+(defpoll GETBRIGHT :interval "20s" :initial "50" "Brightness --get")
+(defpoll GETICONBRIGHT :interval "20s" :initial "50" "Brightness --icon")
+
+
+;;  .------------------------.
+;;  | .--------------------. |
+;;  | |    Widget Base     | |
+;;  | `--------------------' |
+;;  `------------------------'
+
+(defwidget controlcenter []
+
+    ;; Box Principal
+    (box
+        :orientation "v"
+        :spacing 10
+        :space-evenly false
+
+        ;; Par Superior
+        (box
+            :orientation "h"
+            :spacing 10
+
+            ;; Internet
+            (ccrectangular-button
+                :design { NETNAME == "Sin Conexión" ? "ccrectangular-btn" : "ccrectangular-btn-on" }
+                :click "notify-send proximamente"
+                :popup "Conectado a ${NETNAME}"
+                :icono "${NETICON}"
+                :texto "${NETNAME}"
+            )
+
+            ;; Bluetooth
+            (ccrectangular-button
+                :design "ccrectangular-btn"
+                :click "notify-send proximamente"
+                :popup "Bluetooth Proximamente"
+                :icono "󰂲"
+                :texto "proximamente"
+            )
+        )
+
+        ;; Par Central
+        (box
+            :orientation "h"
+            :spacing 10
+
+            ;; Modo Avion
+            (ccrectangular-button
+                :design { MODOAVION == "enabled" ? "ccrectangular-btn" : "ccrectangular-btn-on" }
+                :click { MODOAVION == "enabled" ? "nmcli radio wifi off" : "nmcli radio wifi on"}
+                :popup "Modo Avion"
+                :icono { MODOAVION == "enabled" ? "󰀞" : "󰀝" }
+                :texto "Modo Avion"
+            )
+
+            ;; Luz Nocturna
+            (ccrectangular-button
+                :design { LUZNOCTURNA == "apagado" ? "ccrectangular-btn" : "ccrectangular-btn-on" }
+                :click "LuzNocturna && Eww update LUZNOCTURNA=$(LuzNocturna --status)"
+                :popup "Modo Avion"
+                :icono "󱩌"
+                :texto "Luz Nocturna"
+            )
+        )
+
+        ;; Cuatro Finales
+        (box
+            :orientation "h"
+            :spacing 10
+
+            ;; No Molestar
+            (ccnormal-button
+                :design { NOMOLESTAR == "false" ? "ccbutton" : "ccbutton-on" }
+                :click "dunstctl set-paused toggle && Eww update NOMOLESTAR=$(dunstctl is-paused)"
+                :popup "Activar el modo No Molestar"
+                :icono "󱏧"
+            )
+
+            ;; Wallpaper
+            (ccnormal-button
+                :design "ccbutton"
+                :click "SetWallpaper --change"
+                :popup "Hacer un cambio rapido de Wallpaper"
+                :icono ""
+            )
+
+            ;; Sin Usar
+            (ccnormal-button
+                :design "ccbutton"
+                :click "notify-send proximamente"
+                :popup "proximamente"
+                :icono "x"
+            )
+
+            ;; Sin Usar
+            (ccnormal-button
+                :design "ccbutton"
+                :click "notify-send proximamente"
+                :popup "proximamente"
+                :icono "x"
+            )
+        )
+        
+        ;; Slider de Volumen
+        (box
+            :class "volumeslider"
+            :orientation "h"
+            :halign "center"
+            :spacing 10
+            :space-evenly false
+            (label :class "volumeicon" :text GETICONVOLUME)
+            (scale
+            :min "0"
+            :max "101"
+            :value GETVOLUME
+            :orientation "horizontal"
+            :onchange "Volume --set {}"
+            )
+        )
+
+        ;; Slider de Microfono
+        (box
+            :class "microslider"
+            :orientation "h"
+            :halign "center"
+            :spacing 10
+            :space-evenly false
+            (label :class "microicon" :text "")
+            (scale
+            :min "0"
+            :max "100"
+            :value GETMICRO
+            :orientation "horizontal"
+            :onchange "Microphone --set {}"
+            )
+        )
+
+        ;; Slider de Brillo
+        (box
+            :class "brightslider"
+            :orientation "h"
+            :halign "center"
+            :spacing 10
+            :space-evenly false
+            (label :class "brighticon" :text GETICONBRIGHT)
+            (scale
+            :min "0"
+            :max "100"
+            :value GETBRIGHT
+            :orientation "horizontal"
+            :onchange "Brightness --set {}"
+            )
+        )
+    )
+)
+
+
+;;  .------------------------.
+;;  | .--------------------. |
+;;  | |   Buttons preset   | |
+;;  | `--------------------' |
+;;  `------------------------'
+
+(defwidget ccrectangular-button [design click popup icono texto]
+    (eventbox
+        :class design
+        :cursor "pointer"
+        :onclick click
+        (box
+            :space-evenly false
+            :tooltip popup
+            (label :class "ccicon" :text icono :halign "start")
+            (label :class "cctext" :text texto :halign "center")
+            (label :class "ccicon" :text "" :halign "end")
+        )
+    )
+)
+
+(defwidget ccnormal-button [design click popup icono]
+    (eventbox
+        :class design
+        :cursor "pointer"
+        :onclick click
+        (box
+            :halign "center"
+            :tooltip popup
+            (label :class "ccicon" :text icono)
+        )
+    )
+)
+;;  .------------------------.
+;;  | .--------------------. |
+;;  | |      Ventana       | |
+;;  | `--------------------' |
+;;  `------------------------'
+
+(defwindow controlcenter
+    :stacking "bg"
+    :windowtype "dock"
+    :wm-ignore true
+    :geometry (geometry
+        :x "-12"
+        :y "58px"
+        :anchor "top right"
+        :width "350px"
+        :height "300px"
+    )
+    (controlcenter)
+)

@@ -181,6 +181,7 @@
     "clock": {
         "format": "{:%H\n%M}",
         "format-alt": "{:%H\n%M}",
+        "on-click": "eww open --toggle centerpanel --screen G27Q",
         "on-click-right": "exec gnome-calendar",
         "tooltip": true,
         "tooltip-format": "<span>{calendar}</span>",

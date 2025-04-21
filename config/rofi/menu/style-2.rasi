@@ -53,7 +53,7 @@ inputbar {
     children:                    [ "entry" ];
     expand:                      false;
     background-color:            @background;
-    background-image:            url("~/.config/hypr/.cache/wall.quad", width);
+    background-image:            url("~/Pictures/Wallpapers/groot.png", width);
     border-radius:               1em 0em 0em 1em;
 }
 entry {

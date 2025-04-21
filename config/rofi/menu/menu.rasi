@@ -34,9 +34,7 @@ window {
     border-color:                @foreground;
     background-color:            @background;
     border-radius:               @radius;
-    location: northWest;
-    x-offset: 15px;
-    y-offset: 15px;
+    location:                    center;
 }
 mainbox {
     enabled:                     true;

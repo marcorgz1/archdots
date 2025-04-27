@@ -6,55 +6,23 @@
 }
 
 @import "style/nord.css";
-@import "style/theme.css";
 
 window#waybar {
-  background-color: @background;
+  background-color: @base;
   border: 2px solid @white;
-  border-radius: 12px;
-}
-
-tooltip {
-  background: @base;
-  opacity: 1;
-  border-radius: 10px;
-  border-width: 2px;
-  border-style: solid;
-  border-color: @sapphire;
-}
-
-tooltip label {
-  font-size: 16px;
-  color: @blue;
+  border-radius: 16px;
 }
 
 #workspaces button {
   padding: 7px 0;
-  color: @surface2;
+  color: @mauve;
   margin-right: 5px;
-  background-color: transparent;
+  font-weight: 900;
 }
 
 #workspaces button.active {
-  color: @subtext1;
-}
-
-#workspaces button.focused {
-  color: @rosewater;
-  background: transparent;
-  border-radius: 15px;
-}
-
-#workspaces button.urgent {
-  color: #11111b;
-  background: transparent;
-  border-radius: 15px;
-}
-
-#workspaces button:hover {
-  background: transparent;
-  color: @flamingo;
-  border-radius: 15px;
+  color: @text;
+  font-weight: 900;
 }
 
 #custom-menu,

@@ -32,30 +32,5 @@
         "pulseaudio/slider",
         "pulseaudio#audio", 
         "group/power"
-    ],
-
-    "hyprland/workspaces": {
-        "disable-scroll": true,
-        "all-outputs": true,
-        "on-click": "activate",
-        "on-scroll-up": "hyprctl dispatch workspace e-1",
-        "on-scroll-down": "hyprctl dispatch workspace e+1",
-        "format": "{icon}",
-        "format-icons": {
-            "default": "",
-          },
-        "persistent-workspaces": {
-            "1": [],
-            "2": [],
-            "3": []
-        }
-    },
-
-    "custom/launch_rofi": {
-        "format": "",
-        "on-click": "rofi -show drun -theme ~/.config/rofi/menu/menu.rasi || pkill rofi",
-        "on-click-right": "kitty --title yazi -e yazi",
-        "tooltip": true,
-        "tooltip-format": "Left Click: Launch Rofi\nRight Click: Launch yazi"
-    },
+    ] 
 }

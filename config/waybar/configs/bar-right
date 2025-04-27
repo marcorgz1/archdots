@@ -29,7 +29,6 @@
     "modules-right": [ 
         "clock",
         "tray", 
-        "network", 
         "pulseaudio/slider",
         "pulseaudio#audio", 
         "group/power"

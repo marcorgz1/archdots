@@ -211,8 +211,8 @@ tooltip label {
 #clock-calender {
   color: @white;
   border-radius: 15px;
-  padding: 15px 0;
-  font-size: 24px;
+  padding: 14px 20px;
+  font-size: 32px;
 }
 
 #clock {

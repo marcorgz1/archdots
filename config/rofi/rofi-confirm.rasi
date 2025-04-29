@@ -62,7 +62,7 @@ listview {
     fixed-height:                true;
     fixed-columns:               true;
     
-    spacing:                     30px;
+    spacing:                     48px;
     background-color:            transparent;
     text-color:                  @foreground;
     cursor:                      "default";
@@ -77,7 +77,7 @@ element {
     cursor:                      pointer;
 }
 element-text {
-    font:                        "feather 48";
+    font:                        "Onest Bold 62";
     background-color:            transparent;
     text-color:                  inherit;
     cursor:                      inherit;

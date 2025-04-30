@@ -31,6 +31,7 @@
         "clock",
         "tray", 
         "power-profiles-daemon",
+        "custom/colorpicker",
         "pulseaudio/slider",
         "pulseaudio#audio", 
         "group/power"

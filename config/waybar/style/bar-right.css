@@ -37,6 +37,7 @@ window#waybar {
 #custom-weather,
 #idle_inhibitor,
 #power-profiles-daemon,
+#custom-colorpicker,
 #clock,
 #pulseaudio,
 #network,
@@ -49,6 +50,11 @@ window#waybar {
   background: transparent;
   opacity: 1;
   padding: 12px 0;
+}
+
+#custom-menu {
+  color: @flamingo;
+  margin-top: 8px;
 }
 
 #idle_inhibitor {
@@ -68,6 +74,7 @@ window#waybar {
 }
 
 #mpris {
+  color: @green;
   padding: 12px 6px;
   margin-bottom: 56px;
 }
@@ -135,6 +142,15 @@ window#waybar {
   font-size: 12px;
 }
 
+#power-profiles-daemon {
+  color: @overlay2;
+}
+
+#custom-colorpicker {
+  color: @teal;
+  padding: 12px 0;
+}
+
 #custom-weather {
   color: @green;
   border-radius: 15px;
@@ -179,7 +195,7 @@ window#waybar {
 
 #clock,
 #clock-calender {
-  color: @white;
+  color: @yellow;
   font-size: 32px;
 }
 

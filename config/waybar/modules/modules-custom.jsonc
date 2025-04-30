@@ -71,6 +71,12 @@
         "framerate": 60
     },
 
+    "custom/colorpicker": {
+        "format": " ",
+        "on-click": "$HOME/.config/hypr/scripts/ColorPicker.sh",
+        "tooltip": false
+    },
+
     
     // clipboard manager
     "custom/clipboard": {

@@ -46,6 +46,18 @@
         "on-click-right": "kitty -e nmtui"
     },
 
+    "power-profiles-daemon": {
+      "format": "{icon}",
+      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+      "tooltip": true,
+      "format-icons": {
+        "default": "",
+        "performance": "",
+        "balanced": "",
+        "power-saver": ""
+      }
+    },
+
     // idle inhibitor
     "idle_inhibitor": {
         "format": "{icon}",
@@ -93,11 +105,10 @@
         "on-click": "activate",
         "on-scroll-up": "hyprctl dispatch workspace e-1",
         "on-scroll-down": "hyprctl dispatch workspace e+1",
-        "format": "{icon}",        
-        "persistent-workspaces": {
-            "1": [],
-            "2": [],
-            "3": []
+        "format": "{icon}",
+        "format-icons": {
+            "default": "",
+            "active": ""
         }
     },
 
@@ -267,7 +278,7 @@
     // mpris ( media player )
     "mpris": {
         "interval": 1,
-        "format": "{player_icon}  {status_icon}",
+        "format": "{player_icon} {title} {status_icon}",
         "format-paused": "{player_icon}  {status_icon}",
         "tooltip": true,
         "tooltip-format": "{dynamic}",
@@ -289,12 +300,12 @@
             "vlc": "󰕼"
         },
         "status-icons": {
-            "paused": "󰏤 ",
-            "playing": " ",
+            "playing": "󰏤 ",
+            "paused": " ",
             "stopped": ""
         },
-        "max-length": 30,
-        "rotate": 90
+        "max-length": 50,
+        "rotate": 270
     },
 
     // keyboard status

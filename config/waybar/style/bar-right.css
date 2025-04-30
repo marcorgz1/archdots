@@ -13,15 +13,18 @@ window#waybar {
   border-radius: 16px;
 }
 
+#window {
+  padding: 16px 32px;
+}
+
 #workspaces button {
-  padding: 7px 0;
-  color: @mauve;
-  margin-right: 5px;
+  color: @surface0;
+  padding-top: 8px;
   font-weight: 900;
 }
 
 #workspaces button.active {
-  color: @text;
+  color: @blue;
   font-weight: 900;
 }
 
@@ -33,8 +36,8 @@ window#waybar {
 #custom-lock,
 #custom-weather,
 #idle_inhibitor,
+#power-profiles-daemon,
 #clock,
-#window,
 #pulseaudio,
 #network,
 #tray,
@@ -45,7 +48,7 @@ window#waybar {
 #backlight {
   background: transparent;
   opacity: 1;
-  padding: 10px 16px;
+  padding: 12px 0;
 }
 
 #idle_inhibitor {
@@ -65,9 +68,8 @@ window#waybar {
 }
 
 #mpris {
-  background-color: transparent;
-  font-size: 15;
-  color: @rosewater;
+  padding: 12px 6px;
+  margin-bottom: 56px;
 }
 
 #battery {
@@ -178,13 +180,7 @@ window#waybar {
 #clock,
 #clock-calender {
   color: @white;
-  border-radius: 15px;
-  padding: 14px 20px;
   font-size: 32px;
-}
-
-#clock {
-  padding-top: 5px;
 }
 
 #custom-dots {

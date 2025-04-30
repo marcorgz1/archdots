@@ -15,8 +15,14 @@
     // Cava visualizer
     "custom/cava": {
 	    "exec": "$HOME/.config/hypr/scripts/cava.sh",
-	    "format": "{}"
-    },
+	    "format": "{}",
+        "rotate": 90,
+        "tooltip": false,
+        "min-length": 10,
+        "on-click": "playerctl play-pause",
+        "restart-interval": 1,
+        "style": "font-family: monospace; font-size: 14px;"
+    },   
 
     // power menu ( universal )
     "custom/power_btn": {

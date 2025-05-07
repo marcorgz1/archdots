@@ -8,24 +8,24 @@
 @import "style/nord.css";
 
 window#waybar {
-  background-color: @base;
-  border: 2px solid @white;
-  border-radius: 16px;
+  background-color: transparent;
+  /* border: 2px solid @white;
+  border-radius: 16px; */
 }
 
-#window {
-  padding: 16px 32px;
+.modules-left,
+.modules-center,
+.modules-right {
+  background-color: @base;
+  border-radius: 36px;
 }
 
 #workspaces button {
   color: @surface0;
-  padding-top: 8px;
-  font-weight: 900;
 }
 
 #workspaces button.active {
   color: @blue;
-  font-weight: 900;
 }
 
 #custom-menu,
@@ -49,7 +49,7 @@ window#waybar {
 #backlight {
   background: transparent;
   opacity: 1;
-  padding: 12px 0;
+  padding: 16px 20px;
 }
 
 #custom-menu {
@@ -196,7 +196,7 @@ window#waybar {
 #clock,
 #clock-calender {
   color: @yellow;
-  font-size: 32px;
+  font-size: 30px;
 }
 
 #custom-dots {

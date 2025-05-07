@@ -110,7 +110,7 @@
             "default": "",
             "active": ""
         }
-    },
+    }, 
 
     // cpu
     "cpu": {

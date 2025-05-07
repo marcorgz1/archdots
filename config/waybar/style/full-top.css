@@ -93,7 +93,7 @@ tooltip label {
   transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
 }
 
-#custom-launch_rofi,
+#custom-menu,
 #custom-lock_screen,
 #custom-light_dark,
 #custom-power_btn,
@@ -107,16 +107,18 @@ tooltip label {
 #idle_inhibitor,
 #custom-updates,
 #custom-clipboard,
+#custom-colorpicker,
 #custom-wallpaper-change,
 #memory,
 #clock,
 #pulseaudio,
+#pulseaudio-slider,
 #network,
 #tray,
 #temperature,
 #workspaces,
 #taskbar,
-#custom-notify,
+#custom-swaync,
 #battery,
 #mpris,
 #custom-nightlight,
@@ -208,7 +210,7 @@ tooltip label {
 }
 
 #custom-power_btn {
-  color: red;
+  color: cyan;
   padding: 0 15px;
   padding-right: 20px;
   margin-right: 10px;
@@ -238,7 +240,7 @@ tooltip label {
   padding: 0 5px;
 }
 
-#custom-launch_rofi {
+#custom-menu {
   margin-right: 10px;
   padding: 0 15px;
   padding-right: 20px;
@@ -296,6 +298,56 @@ tooltip label {
 #custom-launch_rofi {
   color: #89b4fa;
   margin-left: 10px;
+}
+
+/*
+#pulseaudio-slider {
+  margin-right: 10px;
+}
+
+#pulseaudio-slider slider {
+  min-height: 0px;
+  min-width: 0px;
+  opacity: 0;
+  background-color: @foreground;
+  border-radius: 3px;
+  box-shadow: 1px 5px 6px 1px #272727;
+}
+
+#pulseaudio-slider trough {
+  min-height: 7px;
+  min-width: 100px;
+  opacity: 0;
+  border: none;
+  background: transparent;
+}
+
+#pulseaudio-slider highlight {
+  min-width: 10px;
+  border-radius: 5px;
+}
+*/
+
+#pulseaudio-slider slider {
+  min-height: 0px;
+  min-width: 0px;
+  opacity: 0;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+}
+
+#pulseaudio-slider trough {
+  min-height: 3px;
+  min-width: 90px;
+  border-radius: 3px;
+  background-color: @color1;
+}
+
+#pulseaudio-slider highlight {
+  min-width: 10px;
+  border-radius: 5px;
+  background-color: @foreground;
 }
 
 #pulseaudio {

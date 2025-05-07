@@ -11,16 +11,13 @@
     "passthrough": false,
     "gtk-layer-shell": true,
     "reload_style_on_change": true,
-    "margin-right": 6,
+    "margin-right": 18,
     "margin-top": 100,
     "margin-bottom": 100,
 
     "modules-left": [
         "custom/menu",
-        "custom/dots",
-        "hyprland/window",
-        "custom/dots",
-        "mpris",
+        "mpris"
     ],
 
     "modules-center": [
@@ -29,9 +26,6 @@
 
     "modules-right": [ 
         "clock",
-        "tray", 
-        "power-profiles-daemon",
-        "custom/colorpicker",
         "pulseaudio/slider",
         "pulseaudio#audio", 
         "group/power"

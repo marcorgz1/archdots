@@ -17,27 +17,26 @@
     "margin-right": 10,
 
     "modules-left": [
-        "custom/launch_rofi", 
+        "custom/launch_rofi",
+        "hyprland/window", 
         "hyprland/workspaces",
         "group/sysinfo",
-        "mpris",
-        "custom/separator#blank_2",
-        "custom/cava",
-        "custom/separator#blank_3",
-        "hyprland/window"
+        "power-profiles-daemon",
+        "mpris" 
     ],
 
     "modules-center": [
-        "clock",
-        "custom/separator#blank",
-        "wlr/taskbar"
+        "clock"
     ],
 
-    "modules-right": [        
+    "modules-right": [ 
         "tray", 
+        //"custom/notify",
         "pulseaudio", 
-        "pulseaudio#microphone",
-        "bluetooth",
+        "pulseaudio#microphone", 
+        "custom/updater", 
+        "custom/theme",
+        "custom/wallpaper",
         "idle_inhibitor", 
         "custom/nightlight", 
         "custom/clipboard", 

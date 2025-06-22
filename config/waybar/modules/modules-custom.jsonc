@@ -4,62 +4,57 @@
     // rofi app launcher
     "custom/menu": {
         "format": "",   // for arch
-        //  "format": "󰣛",   // for fedora
+         // "format": "󰣛",   // for fedora
         // "format": "",  // for opensuse
-        "on-click": "rofi -show drun -theme ~/.config/rofi/menu/menu.rasi || pkill rofi",
+        "on-click": "rofi -show drun -theme ~/.config/rofi/menu/menu.rasi || killall rofi",
         "on-click-right": "kitty --title yazi -e yazi",
         "tooltip": true,
         "tooltip-format": "Left Click: Launch Rofi\nRight Click: Launch yazi"
     },
-    
-    // Cava visualizer
-    "custom/cava": {
-	    "exec": "$HOME/.config/hypr/scripts/cava.sh",
-	    "format": "{}",
-        "rotate": 90,
-        "tooltip": false,
-        "min-length": 10,
-        "on-click": "playerctl play-pause",
-        "restart-interval": 1,
-        "style": "font-family: monospace; font-size: 14px;"
-    },   
 
     // power menu ( universal )
     "custom/power_btn": {
         "format": "",
-        "on-click": "~/.config/hypr/scripts/powermenu.sh",
+        "on-click": "~/.config/rofi/powermenu/type-2/powermenu.sh",
         "tooltip": false
     },
 
-    // notify using swaync
-    "custom/swaync": {
-      // "format": "{icon} {}",
-        "format": "{icon}", // TODO: workaround for the module not showing up // revert when fixed
+    "custom/notify": {
+        "tooltip": true,
+        "tooltip-format": "Left Click: Launch Notification Center\nRight Click: Do not Disturb",
+        "format": "{} {icon} ",
         "format-icons": {
-            "email-notification": "<span foreground='white'><sup></sup></span>",
-            "chat-notification": "󱋊<span foreground='white'><sup></sup></span>",
-            "warning-notification": "󱨪<span foreground='yellow'><sup></sup></span>",
-            "error-notification": "󱨪<span foreground='red'><sup></sup></span>",
-            "network-notification": "󱂇<span foreground='white'><sup></sup></span>",
-            "battery-notification": "󰁺<span foreground='white'><sup></sup></span>",
-            "update-notification": "󰚰<span foreground='white'><sup></sup></span>",
-            "notification": "<span foreground='white'><sup></sup></span>",
-            "dnd": "",
-            "none": ""
+            "notification": "<span foreground='red'><sup></sup></span>",
+            "none": "",
+            "dnd-notification": "<span foreground='red'><sup></sup></span>",
+            "dnd-none": "",
+            "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+            "inhibited-none": "",
+            "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+            "dnd-inhibited-none": ""
         },
         "return-type": "json",
         "exec-if": "which swaync-client",
         "exec": "swaync-client -swb",
-        "on-click": "swaync-client -t sw",
+        "on-click": "sleep 0.1 && swaync-client -t -sw",
         "on-click-right": "swaync-client -d -sw",
-        "escape": true
-    },        
+        "escape": true,
+    },
+
+    "custom/gamescope": {
+      "on-click": "hyprctl dispatch workspace $(hyprctl clients -j | jq '.[] | select(.class == \"gamescope\").workspace.id')",
+      "exec": "$HOME/.config/hypr/scripts/gamescope.sh",
+      "format": "{}",
+      "hide-empty-text": true,
+      "return-type": "json"
+    },
 
     // System updater ( works for arch, fedora and opensuse also. )
     "custom/updater": {
         "exec": "~/.config/hypr/scripts/systemupdate.sh --check",
         "return-type": "json",
         "format": " {}",
+        // "format": " {}", // for arch linux only
         "on-click": "~/.config/hypr/scripts/systemupdate.sh --update",
         "interval": 86400,
         "tooltip": true
@@ -69,12 +64,6 @@
     "custom/cava": {
         "exec": "~/.config/hypr/scripts/cava.sh",
         "framerate": 60
-    },
-
-    "custom/colorpicker": {
-        "format": " ",
-        "on-click": "$HOME/.config/hypr/scripts/ColorPicker.sh",
-        "tooltip": false
     },
 
     
@@ -88,25 +77,11 @@
         "tooltip-format": "You have {} items copied"
     },
 
-
-    // wallpaper changer and selector ( haven't add in the waybar )
-    "custom/wallpaper-change": {
-        "format": "󰸉",
-        "on-click": "exec ~/.config/hypr/scripts/Wallpaper.sh",
-        "on-click-right": "~/.config/hypr/scripts/WallpaperSelect.sh style2"
-    },
-
-
-   "custom/weather": {
-        "format": "  {}",
-        "format-alt": "{alt}: {}",
-        "format-alt-click": "click",
-        "interval": 3600,
+   "custom/weather": { 
+        "interval": 1000,
         "return-type": "json",
-        "exec": "~/.config/hypr/scripts/Weather.sh",
+        "exec": "~/.config/hypr/scripts/weather.py",
         //"exec": "~/.config/waybar/scripts/Weather.py",
-        "exec-if": "ping wttr.in -c1",
-        "tooltip" : true
     },
 
     
@@ -121,6 +96,21 @@
         "tooltip": true,
         "tooltip-format": "Screen temperature is: {}\n\nLeft Click: set temp 5000k\nRight Click: set temp 6500k (default)\n\nScroll Down: increase temp(+100K)\nScroll Up: decrease temp(-100K)",
         "interval": 1
+    },
+
+    // Wallpaper
+    "custom/wallpaper": {
+        "format": " 󰸉 ",
+        "tooltip-format": "Left Click: Change wallpaper\nRight Click: Select Wallpaper",
+        "on-click": "~/.config/hypr/scripts/Wallpaper.sh",
+        "on-click-right": "~/.config/hypr/scripts/WallpaperSelect.sh thm2"
+    },
+
+    // Theme (dark light)
+    "custom/theme": {
+        "format": " ",
+        "tooltip-format": "Toggle Dark/Light theme",
+        "on-click": "~/.config/hypr/scripts/dark_light.sh",
     },
 
     // system info expand
@@ -154,35 +144,22 @@
         "on-click": "~/.config/hypr/scripts/power.sh --logout"
     },
 
-    // Separators
-    "custom/separator#dot": {
-	    "format": "",
-	    "interval": "once",
-	    "tooltip": false
+    // "custom/backlight": {
+    //     "interval": 2,
+    //     "format": "󰃠 ",
+    //     "icon-size": 10,
+    // },
+    //
+    // "custom/battery": {
+    //     "interval": 5,
+    //     "format": "󰁽",
+    // },
+
+    "pulseaudio/slider": {
+        "min": 0,
+        "max": 100,
+        "on-scroll-up": "~/.config/hypr/scripts/volumecontrol.sh --inc",
+        "on-scroll-down": "~/.config/hypr/scripts/volumecontrol.sh --dec",
+        "orientation": "vertical"
     },
-    "custom/separator#dot-line": {
-	    "format": "",
-	    "interval": "once",
-    	"tooltip": false
-    },
-"custom/separator#line": {
-	"format": "|",
-	"interval": "once",
-	"tooltip": false
-},
-"custom/separator#blank": {
-	"format": "",
-	"interval": "once",
-	"tooltip": false
-},
-"custom/separator#blank_2": {
-	"format": "  ",
-	"interval": "once",
-	"tooltip": false
-},
-"custom/separator#blank_3": {
-	"format": "   ",
-	"interval": "once",
-	"tooltip": false
-},
 }

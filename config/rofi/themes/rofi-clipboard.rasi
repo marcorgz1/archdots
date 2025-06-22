@@ -23,15 +23,18 @@ configuration {
 /* ---- Window ---- */
 window {
     width:                        600px;
+    x-offset: -15px;
+    y-offset: 15px;
+    spacing:                      0px;
+    padding:                      0px;
+    margin:                       0px; 
     color:                        @foreground;
     border:                       @border-size;
     border-color:                 @foreground;
     cursor:                       "default";
     transparency:                 "real";
-    location:                     northEast;
-    anchor:                       northEast;
-    y-offset:                     75px;
-    x-offset:                     -20px;
+    location:                     center;
+    anchor:                       center;
     fullscreen:                   false;
     enabled:                      true;
     border-radius:                @radius;

@@ -20,7 +20,7 @@
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "{icon}",
         "format-ethernet": "󰌘",
-        "tooltip-format": "Network: <big><b>{essid}</b></big>\nSignal strength: <b>{signaldBm}dBm ({signalStrength}%)</b>\nFrequency: <b>{frequency}MHz</b>\nInterface: <b>{ifname}</b>\nIP: <b>{ipaddr}/{cidr}</b>\nGateway: <b>{gwaddr}</b>\nNetmask: <b>{netmask}</b>",
+        "tooltip-format": "Network: <big><b>{essid}</b></big>\nSignal strength: <b>{signaldBm}dBm ({signalStrength}%)</b>\nFrequency: <b>{frequency}MHz</b>\nInterface: <b>{ifname}</b>\nIP: <b>{ipaddr}/{cidr}</b>\nGateway: <b>{gwaddr}</b>\nNetmask: <b>{netmask}</b>\nDownload: <b><span foreground='#99ffdd'> {bandwidthDownBytes}</span></b>\nUpload: <b><span foreground='#ffcc66'> {bandwidthUpBytes}</span></b>",
         "format-linked": "󰈀 {ifname} (No IP)",
         "format-disconnected": "󰖪 ",
         "tooltip-format-disconnected": "Disconnected",
@@ -62,7 +62,6 @@
     "hyprland/window": {
         "format": "{}",
         "separate-outputs": true,
-        "tooltip": true,
         "rewrite": {
             "(.*)${USER}@${set_sysname}:(.*)": "$1  :$2",
             "(.*) — Mozilla Firefox": "$1 󰈹",
@@ -89,27 +88,167 @@
 
     // workspaces
     "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
         "on-click": "activate",
         "on-scroll-up": "hyprctl dispatch workspace e-1",
         "on-scroll-down": "hyprctl dispatch workspace e+1",
         "format": "{icon}",
-        "format-icons": {
-		    "1": "1",
-		    "2": "2",
-    		"3": "3",
-	    	"4": "4",
-		    "5": "5",
-    		"6": "6",
-	    	"7": "7",
-		    "8": "8",
-    		"9": "9",
-	    	"10": "10"
-	    },
- 
+        // "format-icons": {
+            // "1": "",
+            // "2": "",
+            // "3": "",
+            // "4": "",
+        //     "urgent": "",
+        //     "focused": "",
+        //     "default": ""
+        // },
+        // "format-icons": {
+            // for arch
+            // "active": "󰮯",
+            // "default": ""
+
+            // for fedora
+            //  "active": "󰣛",  
+            //  "default": ""
+
+            // for opensuse
+            // "active": "",
+            // "default": ""
+         // },
+        "format-icons": { 
+          "active": "\uf111", 
+          "default": "\uf111", 
+          "empty": "\uf10c" 
+        },
+        "persistent-workspaces": { "*": 5 }
+    },
+
+    //------took it from JaKooLit-------//
+
+    "hyprland/workspaces#preview": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "warp-on-scroll": false,
+        "sort-by-number": true,
+        "show-special": false,
+        "on-click": "activate",
+        "on-scroll-up": "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl dispatch workspace e-1",
+        // "persistent-workspaces": {
+        //     "*": 5
+        //   },
+        "persistent-workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": []
+        },
+        "format": "{icon} {windows}",
+        "format-window-separator": " ",
+        "window-rewrite-default": " ",
+        "window-rewrite": {		
+            "title<.*amazon.*>": " ",
+            "title<.*reddit.*>": " ",
+
+            "class<firefox|org.mozilla.firefox|librewolf|floorp|mercury-browser|[Cc]achy-browser>": " ",
+            "class<zen>": "󰰷 ",
+            "class<waterfox|waterfox-bin>": " ",
+            "class<microsoft-edge>": " ",
+            "class<Chromium|Thorium|[Cc]hrome>": " ",
+            "class<brave-browser>": "🦁 ",
+            "class<tor browser>": " ",
+            "class<firefox-developer-edition>": "󰈹 ",
+
+            "class<kitty>": "󰄛 ",
+            "class<kitty-dropterm>": " ",
+            "class<com.mitchellh.ghostty>": " ",
+            "class<org.wezfurlong.wezterm>": " ",
+
+            "class<[Tt]hunderbird|[Tt]hunderbird-esr>": " ",
+            "class<eu.betterbird.Betterbird>": " ",
+            "title<.*gmail.*>": "󰊫 ",
+
+            "class<[Tt]elegram-desktop|org.telegram.desktop|io.github.tdesktop_x64.TDesktop>": " ",
+            "class<discord|[Ww]ebcord|Vesktop>": " ",
+            "title<.*whatsapp.*>": " ",
+        "title<.*zapzap.*>": " ",
+            "title<.*messenger.*>": " ",
+            "title<.*facebook.*>": " ",
+            "title<.*instagram.*>": "󰋾 ",
+            "title<.*reddit.*>": " ",
+            "title<.*github.com.*>": " ",
+
+
+            "title<.*ChatGPT.*>": "󰚩 ",
+            "title<.*deepseek.*>": "󰚩 ",
+            "title<.*qwen.*>": "󰚩 ",
+            "class<subl>": "󰅳 ",
+            "class<slack>": " ",
+
+            "class<mpv>": " ",
+            "class<celluloid|Zoom>": " ",
+            "class<Cider>": "󰎆 ",
+            "title<.*Picture-in-Picture.*>": " ",
+            "title<.*youtube.*>": " ",
+            "class<vlc>": "󰕼 ",
+            "title<.*cmus.*>": " ",
+            "class<[Ss]potify>": " ",
+
+            "class<virt-manager>": " ",
+            "class<.virt-manager-wrapped>": " ",
+            "class<virtualbox manager>": "💽 ",
+            "title<virtualbox>": "💽 ",
+            "class<remmina>": "🖥️ ",
+
+            "class<VSCode|code-url-handler|code-oss|codium|codium-url-handler|VSCodium|code>": "󰨞 ",
+        "class<dev.zed.Zed>": "󰵁",
+            "class<codeblocks>": "󰅩 ",
+            "title<.*github.*>": " ",
+            "title<*[Pp]hotopea.*>": " ",
+            "class<mousepad>": " ",
+            "class<libreoffice-writer>": " ",
+            "class<libreoffice-startcenter>": "󰏆 ",
+            "class<libreoffice-calc>": " ",
+            "title<.*nvim ~.*>": " ",
+            "title<.*vim.*>": " ",
+            "title<.*nvim.*>": " ",
+            "title<.*figma.*>": " ",
+            "title<.*jira.*>": " ",
+            "class<jetbrains-idea>": " ",
+
+            "class<obs|com.obsproject.Studio>": " ",
+
+            "class<polkit-gnome-authentication-agent-1>": "󰒃 ",
+            "class<nwg-look>": " ",
+            "class<[Pp]avucontrol|org.pulseaudio.pavucontrol>": "󱡫 ",
+            "class<steam>": " ",
+            "class<thunar|nemo>": "󰝰 ",	
+            "class<Gparted>":"",
+            "class<gimp>": " ",
+            "class<emulator>": "📱 ",
+            "class<android-studio>": " ",
+            "class<org.pipewire.Helvum>": "󰓃",
+            "class<localsend>":"",
+            "class<PrusaSlicer|UltiMaker-Cura|OrcaSlicer>": "󰹛",
+            "class<org.bleachbit.BleachBit>": " "
+            }
+        },
+
+    "hyprland/workspaces#line": {
+	    "disable-scroll": true,
+    	"show-special": false,
+	    "all-outputs": true,
+    	"format": "{icon}",
         "persistent-workspaces": {
             "*": 5
+	    },
+	    "format-icons": {
+		    "default": " ",
+            "active": " "
         }
-    },
+	},
 
     // cpu
     "cpu": {
@@ -127,7 +266,7 @@
         "tooltip-format": " {used:0.1f}GB/{total:0.1f}GB"
     },
 
-    // disk
+    // dik
     "disk": {
         "interval": 30,
         "format": " {free}",
@@ -180,8 +319,8 @@
     // clock
     "clock": {
         "format": "  {:%H:%M}",
-        "format-alt": "  {:%R 󰃭 %d·%m·%Y}",
-        "on-click-right": "exec gnome-calendar",
+        "format-alt": " {:%R 󰃭 %d·%m·%Y}",
+        "on-clock-right": "exec gnome-calendar",
         "tooltip": true,
         "tooltip-format": "<span>{calendar}</span>",
         "calendar": {
@@ -233,15 +372,18 @@
     "pulseaudio/slider": {
         "min": 0,
         "max": 100,
-        "orientation": "horizontal"
+        "on-scroll-up": "~/.config/hypr/scripts/volumecontrol.sh --inc",
+        "on-scroll-down": "~/.config/hypr/scripts/volumecontrol.sh --dec",
+        "orientation": "vertical"
     },
 
     // pulseaudio
     "pulseaudio": {
-        "format": "{icon}  {volume}%",
-        "format-muted": "",
+        "format": "{icon} {volume}%",
+        "format-muted": " ",
+        "tooltip": false,
         "on-click": "~/.config/hypr/scripts/volumecontrol.sh --toggle",
-        "on-click-right": "control",
+        "on-click-right": "pavucontrol",
         "on-scroll-up": "~/.config/hypr/scripts/volumecontrol.sh --inc",
         "on-scroll-down": "~/.config/hypr/scripts/volumecontrol.sh --dec",
         "scroll-step": 5,
@@ -251,10 +393,7 @@
             "headset": "",
             "phone": "",
             "default": ["", "", " "]
-        },
-        "slider": true,
-        "tooltip": true,
-        "tooltip-format": "{volume}%"
+        }
     },
 
     // pulseautio mic
@@ -269,38 +408,9 @@
         "scroll-step": 5
     },
 
-    "pulseaudio#sink": {
-		"format": "{icon}",
-		"format-bluetooth": "{icon}",
-		"format-muted": "󰝟",
-		"format-icons": {
-			"headphone": "󰋋",
-			"hands-free": "󱡏",
-			"headset": "󰋎",
-			"phone": "",
-			"portable": "",
-			"car": "",
-			"default": [
-				"󰖀",
-				"󰕾"
-			]
-		},
-		"ignored-sinks": [
-			"Easy Effects Sink"
-		],
-		"smooth-scrolling-threshold": "4",
-		"scroll-step": "5",
-		"on-click-middle": "pactl set-default-sink $(pactl list short sinks | awk      '{print $2}' | sed '/easyeffects_sink/d' | sed \"/$(pactl get-default-sink)/d\" | tofi --prompt-text \" \" --height 118 --width 480 --anchor bottom-right --margin-right 80 --margin-bottom 50 --auto-accept-single true )",
-		"on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-		"on-click": "pkill pavucontrol ; pavucontrol",
-		"on-scroll-up": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ -l 2.0",
-		"on-scroll-down": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- -l 2.0"
-	},
-
     // mpris ( media player )
     "mpris": {
-        "interval": 2,
-        "format": "{player_icon}  {status_icon}",
+        "format": "{player_icon}  {status_icon}  {title} - {artist}",
         "format-paused": "{player_icon}  {status_icon}",
         "tooltip": true,
         "tooltip-format": "{dynamic}",
@@ -318,16 +428,36 @@
             "kdeconnect": "",
             "mopidy": "",
             "mpv": "󰐹",
-            "spotify": "",
+            "spotify": "<span color='#1db954'> </span>",
             "vlc": "󰕼"
         },
         "status-icons": {
-            "paused": "󰏤 ",
-            "playing": " ",
+            "paused": " ",
+            "playing": "󰏤 ",
             "stopped": ""
         },
-        "max-length": 30
+        "max-length": 45
     },
+
+    "power-profiles-daemon": {
+      "format": "{icon}",
+      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+      "tooltip": true,
+      "format-icons": {
+        "default": "",
+        "performance": "",
+        "balanced": "",
+        "power-saver": ""
+      }
+    },
+
+    // "user": {
+    //     "format": "{user}",
+    //     "interval": 60,
+    //     "height": 30,
+    //     "width": 30,
+    //     "icon": true,
+    // },
 
     // keyboard status
     // "keyboard-state": {
@@ -342,18 +472,4 @@
 	// 	"unlocked": ""
 	//     }
     // },
-
-    // Spotify player
-    "custom/spotify": {
-	    "format": "<span>  {}</span>",
-	    "return-type": "json",
-	    "max-length": 60,
-	    "exec": "playerctl -a metadata --format  '{\"text\": \"{{markup_escape(title)}} - {{artist}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
-	    "on-click": "playerctl play-pause",
-	    "on-click-right": "playerctl next",
-        "scroll-step": 5.0,
-	    "on-scroll-up": "$HOME/.config/hypr/scripts/volumecontrol.sh --inc",
-	    "on-scroll-down": "$HOME/.config/hypr/scripts/volumecontrol.sh --dec",
-	    "smooth-scrolling-threshold": 1
-    }
 }

@@ -24,6 +24,9 @@ if [[ -d "/usr/share/openbangla-keyboard" ]]; then
     fcitx5 &> /dev/null
 fi
 
+eww open datetime --screen G27Q
+eww open weather --screen G27Q
+eww open media-control --screen G27Q
 
 "$scripts_dir/notification.sh" sys
 "$scripts_dir/wallcache.sh"

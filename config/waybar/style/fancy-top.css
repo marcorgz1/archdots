@@ -10,7 +10,7 @@
 @import "style/theme.css";
 
 window#waybar {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(255, 255, 255, 0.5);
 }
 
 tooltip {
@@ -121,7 +121,6 @@ tooltip label {
 #custom-lock_screen,
 #custom-light_dark,
 #custom-power_btn,
-#custom-power_profile,
 #custom-weather,
 #custom-updater,
 #custom-system,
@@ -225,12 +224,6 @@ tooltip label {
   color: @background;
   padding: 6px 7px;
   border-radius: 20px;
-}
-
-#custom-power_profile {
-  color: #a6e3a1;
-  border-left: 0px;
-  border-right: 0px;
 }
 
 #window {

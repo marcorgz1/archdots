@@ -1,0 +1,211 @@
+configuration {
+    modi: "window,drun,run";
+    width: 60;
+    lines: 12;
+    columns: 1;
+    font: "SpaceMono Nerd Font 12";
+    show-icons: true;
+    icon-theme: "Papirus-Dark";
+    terminal: "kitty";
+    drun-display-format: "{icon} {name}";
+    location: 0;
+    disable-history: false;
+    hide-scrollbar: true;
+    display-window: "󰖯 Windows";
+    display-drun: "󰀻 Apps";
+    display-run: "󰅴 Run";
+    sidebar-mode: true;
+}
+
+@theme "/dev/null"
+
+* {
+    bg0: #0d0d0d;
+    bg1: #1a1a1a;
+    bg2: #2d2d2d;
+    bg3: #404040;
+    fg0: #ffffff;
+    fg1: #e0e0e0;
+    fg2: #b0b0b0;
+
+    accent: #ffffff;
+    urgent: #ffffff;
+
+    background-color: transparent;
+    text-color: @fg0;
+    margin: 0;
+    padding: 0;
+    spacing: 0;
+}
+
+window {
+    location: center;
+    width: 640;
+    border-radius: 12;
+    border: 2px solid;
+    border-color: @accent;
+    background-color: @bg0;
+    padding: 12;
+}
+
+inputbar {
+    background-color: @bg1;
+    text-color: @fg0;
+    border-radius: 8;
+    padding: 12;
+    spacing: 12;
+    children: [ prompt, entry ];
+    margin: 0 0 12 0;
+}
+
+prompt {
+    background-color: transparent;
+    text-color: @accent;
+}
+
+entry {
+    background-color: transparent;
+    text-color: @fg0;
+    placeholder-color: @fg2;
+    placeholder: "Search windows...";
+}
+
+message {
+    background-color: @bg1;
+    border-radius: 8;
+    padding: 12;
+    margin: 0 0 12 0;
+}
+
+textbox {
+    background-color: transparent;
+    text-color: @fg0;
+}
+
+listview {
+    background-color: transparent;
+    columns: 1;
+    lines: 10;
+    cycle: false;
+    dynamic: true;
+    scrollbar: false;
+    layout: vertical;
+    reverse: false;
+    fixed-height: true;
+}
+
+element {
+    background-color: transparent;
+    text-color: @fg0;
+    orientation: horizontal;
+    border-radius: 8;
+    padding: 8 12 8 12;
+    spacing: 12;
+}
+
+element-icon {
+    background-color: transparent;
+    text-color: inherit;
+    size: 24;
+    cursor: inherit;
+}
+
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+    cursor: inherit;
+    vertical-align: 0.5;
+}
+
+element normal.normal {
+    background-color: transparent;
+    text-color: @fg0;
+}
+
+element normal.urgent {
+    background-color: @urgent;
+    text-color: @bg0;
+}
+
+element normal.active {
+    background-color: @accent;
+    text-color: @bg0;
+}
+
+element selected.normal {
+    background-color: @bg2;
+    text-color: @fg0;
+    border: 1px solid;
+    border-color: @accent;
+}
+
+element selected.urgent {
+    background-color: @urgent;
+    text-color: @bg0;
+}
+
+element selected.active {
+    background-color: @accent;
+    text-color: @bg0;
+}
+
+element alternate.normal {
+    background-color: transparent;
+    text-color: @fg0;
+}
+
+element alternate.urgent {
+    background-color: transparent;
+    text-color: @urgent;
+}
+
+element alternate.active {
+    background-color: transparent;
+    text-color: @accent;
+}
+
+sidebar {
+    background-color: @bg1;
+    border-radius: 8;
+    padding: 4;
+    margin: 12 0 0 0;
+}
+
+button {
+    background-color: transparent;
+    text-color: @fg2;
+    border-radius: 6;
+    padding: 8;
+    margin: 2;
+}
+
+button selected {
+    background-color: @accent;
+    text-color: @bg0;
+}
+
+/* Mode switcher styling */
+mode-switcher {
+    background-color: @bg1;
+    border-radius: 8;
+    padding: 4;
+    spacing: 0;
+}
+
+/* Custom window mode styling */
+window.window {
+    width: 800;
+}
+
+window.window listview {
+    lines: 12;
+}
+
+window.window element {
+    padding: 10 12 10 12;
+}
+
+window.window element-text {
+    font: "SpaceMono Nerd Font 12";
+}
+

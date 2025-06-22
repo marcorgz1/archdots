@@ -46,18 +46,6 @@
         "on-click-right": "kitty -e nmtui"
     },
 
-    "power-profiles-daemon": {
-      "format": "{icon}",
-      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
-      "tooltip": true,
-      "format-icons": {
-        "default": "",
-        "performance": "",
-        "balanced": "",
-        "power-saver": ""
-      }
-    },
-
     // idle inhibitor
     "idle_inhibitor": {
         "format": "{icon}",
@@ -73,7 +61,7 @@
     // window
     "hyprland/window": {
         "format": "{}",
-        "rotate": 270,
+        "separate-outputs": true,
         "rewrite": {
             "(.*)${USER}@${set_sysname}:(.*)": "$1  :$2",
             "(.*) — Mozilla Firefox": "$1 󰈹",
@@ -106,11 +94,12 @@
         "on-scroll-up": "hyprctl dispatch workspace e-1",
         "on-scroll-down": "hyprctl dispatch workspace e+1",
         "format": "{icon}",
-        "format-icons": {
-            "default": "",
-            "active": ""
+        "persistent-workspaces": {
+            "1": [],
+            "2": [],
+            "3": []
         }
-    }, 
+    },
 
     // cpu
     "cpu": {
@@ -187,10 +176,9 @@
 
     // clock
     "clock": {
-        "format": "{:%H\n%M}",
+        "format": "{:%I\n%M\n%p}",
         "format-alt": "{:%H\n%M}",
-        "on-click": "eww open --toggle centerpanel --screen G27Q",
-        "on-click-right": "exec gnome-calendar",
+        "on-clock-right": "exec gnome-calendar",
         "tooltip": true,
         "tooltip-format": "<span>{calendar}</span>",
         "calendar": {
@@ -242,6 +230,8 @@
     "pulseaudio/slider": {
         "min": 0,
         "max": 100,
+        "on-scroll-up": "~/.config/hypr/scripts/volumecontrol.sh --inc",
+        "on-scroll-down": "~/.config/hypr/scripts/volumecontrol.sh --dec",
         "orientation": "vertical"
     },
 
@@ -278,7 +268,7 @@
     // mpris ( media player )
     "mpris": {
         "interval": 1,
-        "format": "{player_icon} {title} {status_icon}",
+        "format": "{player_icon}  {status_icon}",
         "format-paused": "{player_icon}  {status_icon}",
         "tooltip": true,
         "tooltip-format": "{dynamic}",
@@ -300,12 +290,12 @@
             "vlc": "󰕼"
         },
         "status-icons": {
-            "playing": "󰏤 ",
-            "paused": " ",
+            "paused": "󰏤 ",
+            "playing": " ",
             "stopped": ""
         },
-        "max-length": 50,
-        "rotate": 270
+        "max-length": 30,
+        "rotate": 90
     },
 
     // keyboard status
@@ -333,6 +323,42 @@
         "exec-if": "ping wttr.in -c1",
         "tooltip" : true,
         "rotate": 90,
+    },
+
+    "custom/notify": {
+        "tooltip": true,
+        "tooltip-format": "Left Click: Launch Notification Center\nRight Click: Do not Disturb",
+        "format": "{} {icon} ",
+        "format-icons": {
+            "notification": "<span foreground='red'><sup></sup></span>",
+            "none": "",
+            "dnd-notification": "<span foreground='red'><sup></sup></span>",
+            "dnd-none": "",
+            "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+            "inhibited-none": "",
+            "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+            "dnd-inhibited-none": ""
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "sleep 0.1 && swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true,
+        "rotate": 90,
+    },
+
+    "power-profiles-daemon": {
+      "format": "{icon}",
+      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+      "tooltip": true,
+      "format-icons": {
+        "default": "",
+        "performance": "",
+        "balanced": "",
+        "power-saver": ""
+      },
+      "rotate": 90
     },
 
     "custom/dots": {

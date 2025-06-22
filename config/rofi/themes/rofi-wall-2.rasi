@@ -17,8 +17,8 @@ window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       100%;
-    height:                      63%;
+    width:                       80%;
+    height:                      60%;
     x-offset:                    0px;
     y-offset:                    0px;
     enabled:                     true;
@@ -78,7 +78,7 @@ listview {
     lines:                       1;
     cycle:                       true;
     dynamic:                     true;
-    scrollbar:                   true;
+    scrollbar:                   false;
     layout:                      vertical;
     reverse:                     false;
     fixed-height:                false;
@@ -113,7 +113,7 @@ element {
 }
 
 element normal.normal {
-    background-color:            inherit;
+    background-color:            transparent;
     text-color:                  @foreground;
 }
 

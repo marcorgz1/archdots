@@ -1,16 +1,17 @@
 * {
   border: none;
   border-radius: 0;
-  font-family: "JetBrainsMono Nerd Font", "MesloLGS Nerd Font", "Font Awesome";
+  font-family: "SpaceMono Nerd Font";
   font-weight: bold;
-  font-size: 16px;
+  font-size: 14px;
   min-height: 0;
 }
 
 @import "style/theme.css";
 
 window#waybar {
-  background: rgba(0, 0, 0, 0.5);
+  /* background: rgba(255, 255, 255, 0.5); */
+  background: transparent;
   color: @foreground;
   border-radius: 20px;
 }
@@ -30,16 +31,15 @@ tooltip label {
 }
 
 #workspaces button {
-  padding: 5px;
+  padding: 2px;
   color: @foreground;
-  margin-right: 5px;
   background-color: rgba(17, 17, 27, 0);
 }
 
 #workspaces button.active {
   color: @background;
   background: @foreground;
-  padding: 0 17px;
+  padding: 0 12px;
   margin: 3px 0;
   border-radius: 15px;
 }
@@ -93,11 +93,10 @@ tooltip label {
   transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
 }
 
-#custom-menu,
+#custom-launch_rofi,
 #custom-lock_screen,
 #custom-light_dark,
 #custom-power_btn,
-#custom-power_profile,
 #custom-weather,
 #custom-updater,
 #custom-system,
@@ -107,22 +106,20 @@ tooltip label {
 #idle_inhibitor,
 #custom-updates,
 #custom-clipboard,
-#custom-colorpicker,
-#custom-wallpaper-change,
 #memory,
 #clock,
 #pulseaudio,
-#pulseaudio-slider,
 #network,
 #tray,
 #temperature,
 #workspaces,
 #taskbar,
-#custom-swaync,
+#custom-notify,
 #battery,
 #mpris,
 #custom-nightlight,
 #hyprland-keyboard,
+#power-profiles-daemon,
 #backlight {
   background: @background;
   opacity: 0.8;
@@ -130,11 +127,25 @@ tooltip label {
   margin: 3px 0px;
 }
 
+#custom-theme,
+#custom-wallpaper {
+  background: rgb(0, 0, 0);
+  padding: 0px 12px;
+  border-radius: 12px;
+  margin-right: 10px;
+  font-size: 14px;
+}
+
+#custom-theme {
+  margin-right: 15px;
+}
+
 #custom-system {
   margin: 3px 10px;
   padding: 0 10px;
   padding-right: 15px;
-  background: transparent;
+  background: rgb(0, 0, 0);
+  border-radius: 12px;
 }
 
 #memory,
@@ -142,7 +153,8 @@ tooltip label {
 #disk,
 #temperature {
   margin-right: 10px;
-  background-color: transparent;
+  background: rgb(0, 0, 0);
+  border-radius: 12px;
 }
 
 #idle_inhibitor {
@@ -198,7 +210,7 @@ tooltip label {
 }
 
 #custom-clipboard {
-  border-radius: 0 15px 15px 0;
+  border-radius: 14px;
   font-size: 14px;
   padding-right: 15px;
 }
@@ -210,9 +222,10 @@ tooltip label {
 }
 
 #custom-power_btn {
-  color: cyan;
+  color: @color16;
   padding: 0 15px;
   padding-right: 20px;
+  margin-left: 12px;
   margin-right: 10px;
   border-radius: 15px;
   font-size: 15px;
@@ -240,12 +253,14 @@ tooltip label {
   padding: 0 5px;
 }
 
-#custom-menu {
-  margin-right: 10px;
+#custom-launch_rofi {
   padding: 0 15px;
   padding-right: 20px;
   font-size: 15px;
   border-radius: 15px;
+  color: @foreground;
+  margin-left: 10px;
+  margin-right: 14px;
 }
 
 #custom-lock_screen {
@@ -271,7 +286,7 @@ tooltip label {
 #custom-weather {
   border-radius: 15px;
   margin-left: 10px;
-  background-color: transparent;
+  background-color: rgb(0, 0, 0);
 }
 
 #temperature.critical {
@@ -279,75 +294,15 @@ tooltip label {
 }
 
 #workspaces {
-  padding: 2px 15px;
-  border-radius: 15px;
-}
-
-#custom-power_profile {
-  color: #a6e3a1;
-  border-left: 0px;
-  border-right: 0px;
+  padding: 2px 17px;
+  border-radius: 20px;
+  margin-left: -5px;
 }
 
 #window {
   border-radius: 15px;
   margin-left: 20px;
   margin-right: 20px;
-}
-
-#custom-launch_rofi {
-  color: #89b4fa;
-  margin-left: 10px;
-}
-
-/*
-#pulseaudio-slider {
-  margin-right: 10px;
-}
-
-#pulseaudio-slider slider {
-  min-height: 0px;
-  min-width: 0px;
-  opacity: 0;
-  background-color: @foreground;
-  border-radius: 3px;
-  box-shadow: 1px 5px 6px 1px #272727;
-}
-
-#pulseaudio-slider trough {
-  min-height: 7px;
-  min-width: 100px;
-  opacity: 0;
-  border: none;
-  background: transparent;
-}
-
-#pulseaudio-slider highlight {
-  min-width: 10px;
-  border-radius: 5px;
-}
-*/
-
-#pulseaudio-slider slider {
-  min-height: 0px;
-  min-width: 0px;
-  opacity: 0;
-  background-image: none;
-  border: none;
-  box-shadow: none;
-}
-
-#pulseaudio-slider trough {
-  min-height: 3px;
-  min-width: 90px;
-  border-radius: 3px;
-  background-color: @color1;
-}
-
-#pulseaudio-slider highlight {
-  min-width: 10px;
-  border-radius: 5px;
-  background-color: @foreground;
 }
 
 #pulseaudio {
@@ -362,6 +317,7 @@ tooltip label {
   margin-right: 10px;
   margin-left: 10px;
   padding: 0 20px;
+  font-size: 12px;
 }
 
 #pulseaudio.microphone {
@@ -369,6 +325,31 @@ tooltip label {
   border-left: 0px;
   border-right: 0px;
   border-radius: 0 15px 15px 0;
+}
+
+#power-profiles-daemon {
+  background-color: @background;
+  border-radius: 15px;
+  padding-right: 20px;
+  padding-left: 15px;
+  /* margin-right: 15px; */
+}
+
+#power-profiles-daemon.performance {
+  color: #fab387;
+  font-size: 15px;
+  padding-right: 18px;
+}
+
+#power-profiles-daemon.balanced {
+  color: #a6e3a1;
+  font-size: 15px;
+  padding-right: 23px;
+}
+
+#power-profiles-daemon.power-saver {
+  color: #89dceb;
+  font-size: 15px;
 }
 
 #custom-cava {

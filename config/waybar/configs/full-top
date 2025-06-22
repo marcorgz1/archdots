@@ -4,8 +4,9 @@
         "$HOME/.config/waybar/modules/modules-groups.jsonc",
         "$HOME/.config/waybar/modules/modules-custom.jsonc",
     ],
+
     "layer": "top",
-    "position": "top",
+    "position": "bottom",
     "mod": "dock",
     "exclusive": true,
     "passthrough": false,
@@ -17,45 +18,26 @@
     "margin-right": 5,
 
     "modules-left": [
-        "custom/menu", 
+        "custom/launch_rofi", 
+        "tray", 
         "hyprland/workspaces", 
+        "custom/weather",
         "mpris" 
     ],
 
     "modules-center": [
-        "clock"
+        "power-profiles-daemon",
+        "clock",
+        "custom/notify"
     ],
 
     "modules-right": [
-        "tray",
-        "pulseaudio",
-        "pulseaudio/slider",
+        "custom/updater", 
+        "pulseaudio", 
+        "pulseaudio#microphone", 
         "group/sysinfo", 
+        "group/wall", // group for wallpapers and theme
         "custom/clipboard",
-        "custom/colorpicker",
-        "custom/swaync",
-        "battery", 
-        "backlight",  
-        "group/network", 
         "custom/power_btn"
     ],
-
-    "hyprland/workspaces": {
-        "disable-scroll": true,
-        "all-outputs": true,
-        "on-click": "activate",
-        "on-scroll-up": "hyprctl dispatch workspace e-1",
-        "on-scroll-down": "hyprctl dispatch workspace e+1",
-        //"format": "{icon}",
-        //"format-icons": {
-        //     "default": ""
-        //  },
-        "persistent-workspaces": {
-            "1": [],
-            "2": [],
-            "3": [],
-            "4": [],
-            "5": []
-        }
-    }
 }

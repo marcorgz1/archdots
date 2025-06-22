@@ -15,6 +15,18 @@
 		}
 	},
 
+    "power-profiles-daemon": {
+      "format": "{icon}",
+      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+      "tooltip": true,
+      "format-icons": {
+        "default": "",
+        "performance": "",
+        "balanced": "",
+        "power-saver": ""
+      }
+    },
+
     // network
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
@@ -31,20 +43,6 @@
     	],
         "on-click-right": "kitty -e nmtui"
     },
-
-    // bluetooth
-
-    "bluetooth": {
-	    "format": "󰂯 ",
-	    "format-disabled": "󰂳",
-	    "format-connected": "󰂱 {num_connections}",
-	    "tooltip-format": "󰂯 {device_alias}",
-	    "tooltip-format-connected": "{device_enumerate}",
-	    "tooltip-format-enumerate-connected": "󰂯 {device_alias} 󰂄{device_battery_percentage}%",
-	    "tooltip": true,
-	    "on-click": "blueman-manager",
-    },
-
 
     // network speed
     "network#speed": {
@@ -172,9 +170,9 @@
     },
 
     "clock": {
-        "format":  " {:%R  <span color='#ffebd1'>󰃭 %d·%m·%Y</span>}",
-        "format-alt": " {:%R}  󰃭 {%d·%m·%Y}",
-        "on-click-right": "exec gnome-calendar",
+        "format": " {:%I:%M %p}",
+        "format-alt": " {:%R 󰃭 %d·%m·%Y}",
+        "on-clock-right": "exec gnome-calendar",
         "tooltip": true,
         "tooltip-format": "<span>{calendar}</span>",
         "calendar": {
@@ -353,6 +351,7 @@
         "exec": "~/.config/hypr/scripts/systemupdate.sh --check",
         "return-type": "json",
         "format": " {}",
+        // "format": " {}", // for arch linux only
         "on-click": "~/.config/hypr/scripts/systemupdate.sh --update",
         "interval": 86400, // once every day
         "tooltip": true

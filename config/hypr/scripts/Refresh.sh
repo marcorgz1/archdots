@@ -15,6 +15,7 @@ file_exists() {
 _ps=(
     dunst
     rofi
+    hyprpanel
     # waybar
 )
 for _prs in "${_ps[@]}"; do
@@ -25,5 +26,16 @@ done
 
 sleep 0.3
 hyprctl reload
+
+sleep 0.5
+
+# Send notification about completed reload
+if command -v notify-send &> /dev/null; then
+    notify-send "Hyprland" "Configuration reloaded successfully!" --icon=dialog-information
+elif command -v dunstify &> /dev/null; then
+    dunstify "Hyprland" "Configuration reloaded successfully!" --icon=dialog-information
+else
+    echo "Hyprland configuration reloaded successfully!"
+fi
 
 exit 0

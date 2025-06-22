@@ -3,20 +3,21 @@
 # Current Theme
 main_dir="$HOME/.config/rofi"
 dir="$main_dir/power_option"
-theme='small'
+theme='fullscreen'
 
 # CMDs
 uptime="$(awk '{printf "%d hour, %d minutes\n", $1/3600, ($1%3600)/60}' /proc/uptime)"
 host=$(hostname)
 
 # Options
-shutdown=''
 reboot=''
 lock=''
 suspend=''
 logout=''
 yes=''
 no=''
+
+# Rofi CM
 
 # Rofi CMD
 rofi_cmd() {

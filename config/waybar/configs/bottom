@@ -7,37 +7,30 @@
 
     "layer": "top",
     "position": "bottom",
-    "mod": "dock",
-    "exclusive": true,
-    "passthrough": false,
-    "gtk-layer-shell": true,
-    "reload_style_on_change": true,
-    "height": 42,
-    "margin-top": 5,
-    "margin-left": 5,
-    "margin-right": 5,
+    "height": 46,
+    "margin-top": 0,
+    "margin-left": 0,
+    "margin-right": 0,
+    "margin-bottom": 6,
 
     "modules-left": [
         "custom/menu", 
         "hyprland/workspaces", 
-        "custom/weather",
         "tray",
-        "mpris" 
+        "custom/playerctl",
+        "custom/playerlabel"
     ],
 
     "modules-center": [
-        "power-profiles-daemon",
-        "hyprland/window"
+        "hyprland/window",
+        "custom/cava"
     ],
 
     "modules-right": [
-        "custom/gamescope",
-        "pulseaudio", 
-        "pulseaudio#microphone",
+        "pulseaudio",
         "clock",
         "custom/notify",
-        "group/sysinfo", 
-        "custom/clipboard",
+        "bluetooth",
         "custom/power_btn"
-    ],
+    ]
 }

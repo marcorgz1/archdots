@@ -83,6 +83,33 @@
             "custom/wallpaper",
             "custom/theme"
         ]
+    },
+
+    "group/connections": {
+	    "orientation": "inherit",
+	    "drawer": {
+		    "transition-duration": 500,
+		    "children-class": "bluetooth",
+		    "transition-left-to-right": true
+      },
+	    "modules": [
+		    "network",
+		    "bluetooth"
+	    ]
+    },
+
+    "group/audio": {
+      "orientation": "inherit",
+      "drawer": {
+        "transition-duration": 300,
+        "children-class": "not-memory",
+        "transition-left-to-right": false
+      },
+
+      "modules": [
+        "pulseaudio",
+        "pulseaudio#microphone"
+      ]
     }
 
 }

@@ -20,10 +20,10 @@ case "$CHOICE" in
     sleep 1
     systemctl suspend
   ;;
-  " ")
+  "")
     cd /$HOME
     sleep 1
-    hyprctl dispatch exit
+    hyprctl dispatch exit 0
   ;;
   *) 
     exit 1

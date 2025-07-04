@@ -1,7 +1,7 @@
 /* ---- Configuration ---- */
 configuration {
     modi:                      "drun,run,filebrowser";
-    font:                      "Fira Code SemiBold 12";
+    font:                      "SpaceMono Nerd FOnt Semibold 12";
     show-icons:                true;
     display-drun:              "";
 	display-run:               "";
@@ -30,7 +30,7 @@ window {
     margin:                       0px; 
     color:                        @foreground;
     border:                       @border-size;
-    border-color:                 @foreground;
+    border-color:                 @border-color;
     cursor:                       "default";
     transparency:                 "real";
     location:                     center;
@@ -72,7 +72,6 @@ inputbar {
     spacing:                      10px;
     padding:                      15px;
     border-radius:                0px;
-    border-color:                 @foreground;
     background-color:             @background;
     children:                     [ "textbox-prompt-colon", "entry" ];
 }
@@ -140,8 +139,7 @@ element {
     padding:                      5px 10px;
     cursor:                       pointer;
     background-color:             @background;
-    border-radius:                @radius;
-    border:                       2px;
+    border-radius:                8px;
 }
 
 element normal.normal {

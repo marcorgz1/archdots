@@ -1,6 +1,6 @@
 * {
     radius: 20px;
     radius-second: 10px;
-    border-size: 3px;
+    border-size: 2px;
 }
 

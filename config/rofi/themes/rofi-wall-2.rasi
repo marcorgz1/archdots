@@ -6,10 +6,21 @@ configuration {
 	drun-display-format:        "{name}";
     me-select-entry:       "MouseSecondary";
     me-accept-entry:       "MousePrimary";
+    font:                  "SpaceMono Nerd Font Semibold 12";
+}
+
+* {
+  background:             #1a1a1a;
+  background-selected:    #2a2a2a;
+  selected:               #262626;
+  selected-border:        #666666;
+  text:                   #e0e0e0;
+  subtext:                #808080;
+  foreground:             #d5c4a1;
 }
 
 /*****----- Global Properties -----*****/
-@import "~/.config/rofi/themes/rofi-colors.rasi"
+// @import "~/.config/rofi/themes/rofi-colors.rasi"
 
 /*****----- Main Window -----*****/
 window {
@@ -17,16 +28,16 @@ window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       80%;
-    height:                      60%;
+    width:                       100%;
+    height:                      46%;
     x-offset:                    0px;
     y-offset:                    0px;
     enabled:                     true;
     margin:                      0px;
     padding:                     0px;
-    border:                      @border-size;
+    border:                      2px;
     border-radius:               0px;
-    border-color:                @foreground;
+    border-color:                @selected-border;
     background-color:            @background;
     cursor:                      "default";
 }
@@ -39,7 +50,7 @@ mainbox {
     padding:                     30px;
     border:                      0px solid;
     border-radius:               0px 0px 0px 0px;
-    border-color:                @selected-active-background;
+    border-color:                @selected-border;
     background-color:            transparent;
     children:                    [ "inputbar", "listview" ];
 }
@@ -52,23 +63,25 @@ inputbar {
     padding:                     0px;
     border:                      0px;
     border-radius:               0px;
-    border-color:                @selected-active-background;
+    border-color:                @selected;
     background-color:            @background;
-    text-color:                  @foreground;
+    text-color:                  @text;
     children:                    [ "entry" ];
 }
 
 entry {
     enabled:                     true;
-    expand:                      false;
+    expand:                      true;
     width:                       350px;
     padding:                     15px 20px;
     border-radius:               15px;
-    background-color:            @alternate-active-background;
-    text-color:                  @foreground;
+    background-color:            @selected;
+    text-color:                  @text;
     cursor:                      text;
-    placeholder:                 " Search Wallpaper...";
+    placeholder:                 "🎞️ Choose / Search Wallpaper";
     placeholder-color:           inherit;
+    horizontal-align:            0.5;
+    vertical-align:              0.5;
 }
 
 /*****----- Listview -----*****/
@@ -89,16 +102,16 @@ listview {
     padding:                     0px;
     border:                      0px solid;
     border-radius:               0px;
-    border-color:                @selected-active-background;
+    border-color:                @selected;
     background-color:            transparent;
     text-color:                  @foreground;
     cursor:                      "default";
 }
 scrollbar {
     handle-width:                5px ;
-    handle-color:                @selected-active-background;
+    handle-color:                @selected;
     border-radius:               3px;
-    background-color:            @alternate-active-background;
+    background-color:            @selected;
 }
 
 /* ---- Element ---- */
@@ -114,7 +127,7 @@ element {
 
 element normal.normal {
     background-color:            transparent;
-    text-color:                  @foreground;
+    text-color:                  @text;
 }
 
 element normal.urgent {
@@ -144,7 +157,7 @@ element selected.active {
 
 element alternate.normal {
     background-color:            inherit;
-    text-color:                  @foreground;
+    text-color:                  @text;
 }
 
 element alternate.urgent {
@@ -194,7 +207,7 @@ textbox {
     margin:                      0px;
     border-radius:               0px;
     background-color:            @background;
-    text-color:                  @foreground;
+    text-color:                  @text;
     vertical-align:              0.5;
     horizontal-align:            0.0;
 }
@@ -203,6 +216,6 @@ error-message {
     padding:                     15px;
     border-radius:               20px;
     background-color:            @background;
-    text-color:                  @foreground;
+    text-color:                  @text;
 }
 

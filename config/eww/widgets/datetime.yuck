@@ -1,0 +1,65 @@
+(defwidget datetime []
+  (box :class "datetime-widget"
+       :orientation "v"
+       :space-evenly false
+       :valign "center"
+       :halign "center"
+    (box :class "time"
+      :orientation "v"
+      :space-evenly true
+      (label :text time :class "time-text"))
+    (box :class "date"
+      :orientation "v"
+      :space-evenly true
+      (label :text date :class "date-text"))
+    (box :class "system-stats" 
+      :orientation "v" 
+      :space-evenly true
+      (label :text cpu :class "cpu-text")
+      (label :text ram :class "ram-text")
+      (label :text disk :class "disk-text"))))
+
+(defpoll time :interval "1s"
+  :initial "00:00"
+  `date +%H:%M`)
+
+(defpoll date :interval "1m"
+  :initial "January 01"
+  `date "+%A, %d %B"`)
+
+(defpoll cpu :interval "2s"
+  :initial "CPU: 0%"
+  `top -bn1 | grep "Cpu(s)" | awk '{print "  CPU: " $2 + $4 "%"}'`)
+
+(defpoll ram :interval "2s"
+  :initial "RAM: 0%"
+  `free -h | awk '/Mem:/ {
+    used = $3;
+    total = $2;
+    sub(/[A-Za-z]+/, "G", used);
+    sub(/[A-Za-z]+/, "G", total);
+    print "  RAM: " used " / " total
+  }'`)
+
+(defpoll disk :interval "10s"
+  :initial "Disk: 0G/0G"
+  `df -h / | awk 'NR==2 {
+    used=$3; avail=$4;
+    sub(/[A-Za-z]+/, "G", used);
+    sub(/[A-Za-z]+/, "G", avail);
+    print "  Disk: " used " (used) / " avail " (avail)"
+  }'`)
+
+(defwindow datetime
+  :monitor 0
+  :geometry (geometry :x "20px"
+                      :y "120px"
+                      :width "600px"
+                      :height "150px"
+                      :anchor "top right")
+  :stacking "bg"
+  :exclusive false
+  :focusable false
+  :namespace "eww-datetime"
+  (datetime))
+

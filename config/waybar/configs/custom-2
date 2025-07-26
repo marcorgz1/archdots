@@ -1,0 +1,46 @@
+{
+    "include": [
+        "$HOME/.config/waybar/modules/modules-main.jsonc",
+        "$HOME/.config/waybar/modules/modules-groups.jsonc",
+        "$HOME/.config/waybar/modules/modules-custom.jsonc",
+    ],
+
+    "layer": "top",
+    "position": "top",
+    "height": 46,
+    "margin-top": 8,
+    "margin-left": 16,
+    "margin-right": 16,
+
+    "modules-left": [
+        "custom/menu",
+        "custom/separator#blank_2",
+        "hyprland/workspaces",
+        "custom/separator#blank_2",
+        "custom/weather",
+        "custom/separator#blank_2",
+        "tray",
+        "custom/separator#blank_2",
+        "custom/playerctl",
+        "custom/playerlabel"
+    ],
+
+    "modules-center": [
+        "custom/notify",
+        "custom/separator#blank_2",
+        "hyprland/window",
+        "custom/separator#blank_2",
+        "custom/updater"
+    ],
+
+    "modules-right": [
+        "pulseaudio",
+        "pulseaudio#microphone",
+        "custom/separator#blank_2",
+        "clock",
+        "custom/separator#blank_2",
+        "power-profiles-daemon",
+        "custom/separator#blank_2",
+        "custom/power_btn"
+    ]
+}

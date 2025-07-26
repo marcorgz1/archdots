@@ -1,0 +1,40 @@
+(defpoll weather :interval "15m"
+  "~/.config/eww/scripts/weather.sh")
+
+(defwidget weather-widget []
+  (box :class "weather-widget"
+       :orientation "v"
+       :space-evenly false
+    (box :class "weather-icon" 
+      :orientation "h"
+      :space-evenly false
+      (label :class "weather-icon" :text "${weather.icon}")
+      (box :class "weather-info"
+        :orientation "v"
+        :space-evenly false
+        (label :class "temperature" :text "${weather.temperature}°C")
+        (label :class "city" :text "${weather.city}")
+      )
+    )
+    (label :class "description" :text "${weather.description}")
+    (box :class "details"
+         :orientation "h"
+         :space-evenly true
+      (label :text "💧 ${weather.humidity}%")
+      (label :text "💨 ${weather.wind} km/h")
+    )
+  )
+)
+
+(defwindow weather
+  :monitor 0
+  :geometry (geometry :x "150px"
+                      :y "420px"
+                      :width "320px"
+                      :height "150px"
+                      :anchor "top right")
+  :stacking "bg"
+  :reserve (struts :distance "40px" :side "top")
+  :windowtype "dock"
+  :wm-ignore false
+  (weather-widget))

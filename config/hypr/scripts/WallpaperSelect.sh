@@ -12,7 +12,7 @@ engine=$(cat "$engine_file")
 
 # Transition config
 FPS=60
-TYPE="random"
+TYPE="grow"
 DURATION=1
 BEZIER=".43,1.19,1,.4"
 SWWW_PARAMS="--transition-fps $FPS --transition-type $TYPE --transition-duration $DURATION"
@@ -49,7 +49,7 @@ case $1 in
         ;;
 esac
 
-swww query || swww init
+swww-daemon &
 
 # No choice case
 if [[ -z $choice ]]; then
@@ -73,15 +73,14 @@ for i in "${!PICS[@]}"; do
 done
 
 if [[ $pic_index -ne -1 ]]; then
-    notify-send -i "${wallDIR}/${PICS[$pic_index]}" "Changing wallpaper" -t 1500
+    # notify-send -i "${wallDIR}/${PICS[$pic_index]}" "Changing wallpaper" -t 1500
     swww img "${wallDIR}/${PICS[$pic_index]}" $SWWW_PARAMS
 
     ln -sf "${wallDIR}/${PICS[$pic_index]}" "$cache_dir/current_wallpaper.png"
     basename="$(basename "${wallDIR}/${PICS[$pic_index]}")"
     wallName="${basename%.*}"
     echo "$wallName" > "$wallCache"
-
-    wal -q -e -i "${wallDIR}/${PICS[$pic_index]}" || printf "\n\nCouls not generate any colors\n"
+    # wal -q -e -i "${wallDIR}/${PICS[$pic_index]}" || printf "\n\nCouls not generate any colors\n"
 
 else
     echo "Image not found."
@@ -90,4 +89,5 @@ fi
 
 sleep 0.5
 "$scripts_dir/wallcache.sh"
-"$scripts_dir/pywal.sh"
+# "$scripts_dir/pywal.sh"
+

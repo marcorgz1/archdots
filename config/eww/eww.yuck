@@ -1,19 +1,4 @@
-;;===========================================================================
-;;
-;;
-;;███╗   ███╗ █████╗ ██████╗ ██╗ ██████╗ ██████╗ ██████╗  ██████╗ ███╗   ███╗
-;;████╗ ████║██╔══██╗██╔══██╗██║██╔═══██╗██╔══██╗██╔══██╗██╔═══██╗████╗ ████║
-;;██╔████╔██║███████║██████╔╝██║██║   ██║██████╔╝██████╔╝██║   ██║██╔████╔██║
-;;██║╚██╔╝██║██╔══██║██╔══██╗██║██║   ██║██╔══██╗██╔══██╗██║   ██║██║╚██╔╝██║
-;;██║ ╚═╝ ██║██║  ██║██║  ██║██║╚██████╔╝██║  ██║██║  ██║╚██████╔╝██║ ╚═╝ ██║
-;;╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝ ╚═════╝ ╚═╝  ╚═╝ ╚═╝ ╚═╝ ╚═════╝ ╚═╝     ╚═╝                                                                          
-;;                          MarioRRom's Dotfiles
-;;                 https://github.com/MarioRRom/bspwm-dotfiles
-;;===========================================================================
+(include "widgets/datetime.yuck")
+(include "widgets/weather.yuck")
+(include "widgets/bar.yuck")
 
-(include "powermenu/powermenu.yuck")
-(include "centerpanel/centerpanel.yuck")
-(include "controlcenter/controlcenter.yuck")
-(include "systeminfo/systeminfo.yuck")
-(include "popup/popup.yuck")
-(include "systray/systray.yuck")

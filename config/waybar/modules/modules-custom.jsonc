@@ -3,10 +3,10 @@
 
     // rofi app launcher
     "custom/menu": {
-        "format": "",   // for arch
+        "format": " ",   // for arch
          // "format": "󰣛",   // for fedora
         // "format": "",  // for opensuse
-        "on-click": "rofi -show drun -theme ~/.config/rofi/menu/menu.rasi || killall rofi",
+        "on-click": "rofi -show drun -theme ~/.config/rofi/launchers/type-8/config.rasi || killall rofi",
         "on-click-right": "kitty --title yazi -e yazi",
         "tooltip": true,
         "tooltip-format": "Left Click: Launch Rofi\nRight Click: Launch yazi"
@@ -17,7 +17,7 @@
       "return-type": "json",
       "max-length": 64,
       "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
-      "on-click-middle": "playerctl play-pause",
+      "on-click-middle": "$HOME/.config/hypr/scripts/media_control.sh --pause",
       "on-click": "playerctl previous",
       "on-click-right": "playerctl next",
       "format-icons": {
@@ -27,13 +27,11 @@
     },
 
     "custom/playerlabel": {
-      "format": "<span>{}</span>",
+      "format": "<span>󰎇 {} 󰎇</span>",
+      "tooltip": false,
       "return-type": "json",
       "max-length": 48,
-      "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
-      "on-click-middle": "playerctl play-pause",
-      "on-click": "playerctl previous",
-      "on-click-right": "playerctl next",
+      "exec": "playerctl -a metadata --format '{\"text\": \"{{markup_escape(title)}} - {{artist}} \", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",      
       "format-icons": {
         "Playing": "<span foreground='#E5B9C6'>󰒮 󰐌 󰒭</span>",
         "Paused": "<span foreground='#928374'>󰒮 󰏥 󰒭</span>"
@@ -43,14 +41,14 @@
     // power menu ( universal )
     "custom/power_btn": {
         "format": "",
-        "on-click": "~/.config/rofi/powermenu/type-2/powermenu.sh",
+        "on-click": "wlogout",
         "tooltip": false
     },
 
     "custom/notify": {
         "tooltip": true,
         "tooltip-format": "Left Click: Launch Notification Center\nRight Click: Do not Disturb",
-        "format": "{} {icon} ",
+        "format": "{icon}",
         "format-icons": {
             "notification": "<span foreground='red'><sup></sup></span>",
             "none": "",
@@ -73,9 +71,9 @@
     "custom/updater": {
         "exec": "~/.config/hypr/scripts/systemupdate.sh --check",
         "return-type": "json",
-        "format": " {}",
+        "format": "󰅢  {}",
         // "format": " {}", // for arch linux only
-        "on-click": "~/.config/hypr/scripts/systemupdate.sh --update",
+        "on-click": "$HOME/.config/hypr/scripts/systemupdate.sh --update",
         "interval": 86400,
         "tooltip": true
     },
@@ -175,11 +173,20 @@
     //     "format": "󰁽",
     // },
 
-    "pulseaudio/slider": {
-        "min": 0,
-        "max": 100,
-        "on-scroll-up": "~/.config/hypr/scripts/volumecontrol.sh --inc",
-        "on-scroll-down": "~/.config/hypr/scripts/volumecontrol.sh --dec",
-        "orientation": "vertical"
+    "custom/separator#blank": {
+	    "format": "",
+	    "interval": "once",
+	    "tooltip": false
     },
+    
+    "custom/separator#blank_2": {
+	    "format": "  ",
+	    "interval": "once",
+	    "tooltip": false
+    },
+    "custom/separator#blank_3": {
+	    "format": "   ",
+	    "interval": "once",
+	    "tooltip": false
+    }
 }

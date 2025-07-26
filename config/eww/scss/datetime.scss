@@ -1,0 +1,32 @@
+.datetime-widget {
+  background-color: rgba(40, 40, 40, 0.9);
+  border-radius: 12px;
+  padding: 10px 20px;
+  color: #ebdbb2;
+  font-family: "SpaceMono Nerd Font";
+
+  .time-text {
+    font-size: 64px;
+    font-weight: bold;
+    margin-bottom: 2px;
+  }
+
+  .date-text {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .system-stats {
+    margin-top: 16px;
+
+    .cpu-text, .ram-text, .disk-text {
+      font-size: 14px;
+      padding: 0 6px;
+    }
+
+    .disk-text {
+      margin-top: 8px;
+    }
+  }
+}
+

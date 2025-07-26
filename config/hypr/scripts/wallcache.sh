@@ -55,3 +55,4 @@ fn_wallcache "${currentWall_name}" "${input_file}"
 if [ ! -f "${thmbDir}/${currentWall_name}.quad" ]; then
     exit 1
 fi
+

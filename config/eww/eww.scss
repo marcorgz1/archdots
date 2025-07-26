@@ -1,30 +1,11 @@
-//===========================================================================
-//
-//
-//███╗   ███╗ █████╗ ██████╗ ██╗ ██████╗ ██████╗ ██████╗  ██████╗ ███╗   ███╗
-//████╗ ████║██╔══██╗██╔══██╗██║██╔═══██╗██╔══██╗██╔══██╗██╔═══██╗████╗ ████║
-//██╔████╔██║███████║██████╔╝██║██║   ██║██████╔╝██████╔╝██║   ██║██╔████╔██║
-//██║╚██╔╝██║██╔══██║██╔══██╗██║██║   ██║██╔══██╗██╔══██╗██║   ██║██║╚██╔╝██║
-//██║ ╚═╝ ██║██║  ██║██║  ██║██║╚██████╔╝██║  ██║██║  ██║╚██████╔╝██║ ╚═╝ ██║
-//╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝ ╚═════╝ ╚═╝  ╚═╝ ╚═╝ ╚═╝ ╚═════╝ ╚═╝     ╚═╝                                                                          
-//                          MarioRRom's Dotfiles
-//                 https://github.com/MarioRRom/bspwm-dotfiles
-//===========================================================================
+@import "/home/marco1/.cache/wal/colors.scss";
 
 * {
-    all: unset;
+  all: unset;
+  font-family: "SpaceMono Nerd Font";
+  font-weight: bold;
 }
 
-tooltip {
-    background-color: #1e1e2e;
-    font-size: 13px;
-    font-weight: bold;
-}
-
-@import "colors-mocha.scss";
-@import "powermenu/powermenu.scss";
-@import "centerpanel/centerpanel.scss";
-@import "controlcenter/controlcenter.scss";
-@import "systeminfo/systeminfo.scss";
-@import "popup/popup.scss";
-@import "systray/systray.scss";
+@import "scss/datetime.scss";
+@import "scss/weather.scss";
+@import "scss/bar.scss";

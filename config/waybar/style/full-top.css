@@ -30,18 +30,25 @@ tooltip label {
   color: @foreground;
 }
 
+#custom-menu {
+  background: @background;
+  border-radius: 8px;
+  padding: 0 22px;
+  margin-left: 14px;
+}
+
+#workspaces {
+  background: @background;
+  border-radius: 12px;
+  padding: 0 4px;
+}
+
 #workspaces button {
-  padding: 2px;
   color: @foreground;
-  background-color: rgba(17, 17, 27, 0);
 }
 
 #workspaces button.active {
-  color: @background;
-  background: @foreground;
-  padding: 0 12px;
-  margin: 3px 0;
-  border-radius: 15px;
+  color: @color3;
 }
 
 #workspaces button.focused {
@@ -62,42 +69,13 @@ tooltip label {
   border: none;
 }
 
-#taskbar button {
-  box-shadow: none;
-  text-shadow: none;
-  padding: 0px;
-  border-radius: 9px;
-  margin-top: 3px;
-  margin-bottom: 3px;
-  padding-left: 3px;
-  padding-right: 3px;
-  animation: gradient_f 20s ease-in infinite;
-  transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.682);
-}
-
-#taskbar button.active {
-  background: #324857;
-  margin-left: 3px;
-  padding-left: 12px;
-  padding-right: 12px;
-  margin-right: 3px;
-  animation: gradient_f 20s ease-in infinite;
-  transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
-}
-
-#taskbar button:hover {
-  background: #304150;
-  padding-left: 3px;
-  padding-right: 3px;
-  animation: gradient_f 20s ease-in infinite;
-  transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
-}
-
 #custom-launch_rofi,
 #custom-lock_screen,
 #custom-light_dark,
 #custom-power_btn,
 #custom-weather,
+#custom-playerctl,
+#custom-playerlabel,
 #custom-updater,
 #custom-system,
 #window,
@@ -112,40 +90,17 @@ tooltip label {
 #network,
 #tray,
 #temperature,
-#workspaces,
 #taskbar,
 #custom-notify,
+#bluetooth,
 #battery,
 #mpris,
 #custom-nightlight,
 #hyprland-keyboard,
 #power-profiles-daemon,
 #backlight {
-  background: @background;
-  opacity: 0.8;
-  padding: 0px 10px;
-  margin: 3px 0px;
-}
-
-#custom-theme,
-#custom-wallpaper {
-  background: rgb(0, 0, 0);
-  padding: 0px 12px;
-  border-radius: 12px;
-  margin-right: 10px;
-  font-size: 14px;
-}
-
-#custom-theme {
-  margin-right: 15px;
-}
-
-#custom-system {
-  margin: 3px 10px;
+  color: @foreground;
   padding: 0 10px;
-  padding-right: 15px;
-  background: rgb(0, 0, 0);
-  border-radius: 12px;
 }
 
 #memory,
@@ -157,29 +112,15 @@ tooltip label {
   border-radius: 12px;
 }
 
-#idle_inhibitor {
-  font-size: 15px;
-  padding: 0 15px;
-  background: @background;
-  border-radius: 15px 0 0 15px;
-  margin-right: 0px;
-}
-
-#hyprland-language {
-  font-size: 15px;
-  margin-right: 20px;
-}
-
-#mpris {
-  background-color: @background;
-  border-radius: 15px;
-  padding-left: 15px;
-  margin-left: 10px;
-}
-
 #custom-notify {
-  border-radius: 15px;
+  background: @background;
+  border-radius: 12px 0 0 12px;
   padding: 0 15px;
+}
+
+#bluetooth {
+  background: @background;
+  border-radius: 0 12px 12px 0;
 }
 
 #custom-nightlight {
@@ -209,27 +150,12 @@ tooltip label {
   animation-direction: alternate;
 }
 
-#custom-clipboard {
-  border-radius: 14px;
-  font-size: 14px;
-  padding-right: 15px;
-}
-
-#custom-wallpaper-change {
-  font-size: 16px;
-  padding-right: 20px;
-  border-radius: 0 15px 15px 0;
-}
-
 #custom-power_btn {
-  color: @color16;
-  padding: 0 15px;
-  padding-right: 20px;
-  margin-left: 12px;
-  margin-right: 10px;
-  border-radius: 15px;
-  font-size: 15px;
-  font-weight: bolder;
+  color: @color14;
+  background: @background;
+  padding: 0 16px;
+  border-radius: 8px;
+  margin-right: 14px;
 }
 
 #taskbar {
@@ -240,12 +166,6 @@ tooltip label {
 #network.speed {
   background-color: transparent;
   font-size: 15px;
-}
-
-#custom-updater {
-  border-radius: 15px;
-  padding: 0 15px;
-  margin-right: 10px;
 }
 
 #backlight {
@@ -273,8 +193,9 @@ tooltip label {
 }
 
 #tray {
-  margin-right: 10px;
-  background-color: transparent;
+  background: @background;
+  border-radius: 8px;
+  padding: 0 12px;
 }
 
 #custom-light_dark {
@@ -284,47 +205,49 @@ tooltip label {
 }
 
 #custom-weather {
-  border-radius: 15px;
+  border-radius: 8px;
   margin-left: 10px;
   background-color: rgb(0, 0, 0);
+}
+
+#custom-playerctl {
+  background: @background;
+  border-radius: 8px 0 0 8px;
+}
+
+#custom-playerlabel {
+  background: @background;
+  border-radius: 0 8px 8px 0;
+}
+
+#window {
+  background: @background;
+  border-radius: 8px;
 }
 
 #temperature.critical {
   color: #e92d4d;
 }
 
-#workspaces {
-  padding: 2px 17px;
-  border-radius: 20px;
-  margin-left: -5px;
-}
-
-#window {
-  border-radius: 15px;
-  margin-left: 20px;
-  margin-right: 20px;
-}
-
 #pulseaudio {
   background-color: @background;
   border-left: 0px;
   border-right: 0px;
-  border-radius: 15px 0 0 15px;
-}
-
-#clock {
-  border-radius: 15px;
-  margin-right: 10px;
-  margin-left: 10px;
-  padding: 0 20px;
-  font-size: 12px;
+  border-radius: 8px 0 0 8px;
 }
 
 #pulseaudio.microphone {
   /* color: #cba6f7; */
   border-left: 0px;
   border-right: 0px;
-  border-radius: 0 15px 15px 0;
+  border-radius: 0 8px 8px 0;
+}
+
+#clock {
+  background: @background;
+  border-radius: 8px;
+  padding: 0 16px;
+  font-size: 16px;
 }
 
 #power-profiles-daemon {
@@ -352,14 +275,3 @@ tooltip label {
   font-size: 15px;
 }
 
-#custom-cava {
-  background: #18202a;
-  color: #9db8c1;
-  opacity: 0.8;
-  padding: 0px 10px;
-  margin: 3px 0px;
-  margin-right: 10px;
-  margin-top: 10px;
-  border: 0px;
-  border-radius: 15px;
-}

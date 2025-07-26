@@ -16,9 +16,19 @@ configuration {
     
 }
 
+* {
+  background:             #1a1a1a;
+  background-selected:    #2a2a2a;
+  selected:               #262626;
+  selected-border:        #666666;
+  text:                   #e0e0e0;
+  subtext:                #808080;
+  foreground:             #d5c4a1;
+}
+
 /* ---- Load pywal colors (custom wal template) ---- */
 @import "~/.config/rofi/themes/rofi-colors.rasi"
-@import "~/.config/rofi/rofi-vars.rasi"
+// @import "~/.config/rofi/rofi-vars.rasi"
 
 /* ---- Window ---- */
 window {
@@ -29,7 +39,7 @@ window {
     padding:                      0px;
     margin:                       0px; 
     color:                        @foreground;
-    border:                       @border-size;
+    border:                       5px;
     border-color:                 @border-color;
     cursor:                       "default";
     transparency:                 "real";
@@ -37,7 +47,7 @@ window {
     anchor:                       center;
     fullscreen:                   false;
     enabled:                      true;
-    border-radius:                @radius;
+    border-radius:                8px;
     background-color:             @background;
 }
 
@@ -102,7 +112,7 @@ mode-switcher{
 }
 
 button {
-    border-radius:                @radius;
+    border-radius:                24px;
     background-color:             @background;
     text-color:                   inherit;
     cursor:                       pointer;
@@ -110,7 +120,7 @@ button {
 }
 
 button selected {
-    background-color:             @color11;
+    background-color:             @background;
     text-color:                   @foreground;
 }
 
@@ -158,8 +168,8 @@ element normal.active {
 }
 
 element selected.normal {
-    background-color:            @foreground;
-    text-color:                  @background;
+    background-color:            @selected-normal-background;
+    text-color:                  @selected-normal-foreground;
 }
 
 element selected.urgent {

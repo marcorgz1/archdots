@@ -131,6 +131,6 @@ fi
 
 # Refresh the scripts
 sleep 0.5
-"${scripts_dir}/Refresh.sh"
+"${scripts_dir}/refresh.sh"
 
 # ------------------------

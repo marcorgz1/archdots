@@ -1,61 +1,39 @@
 {
     "include": [
         "$HOME/.config/waybar/modules/modules-main.jsonc",
+        "$HOME/.config/waybar/modules/modules-groups.jsonc",
         "$HOME/.config/waybar/modules/modules-custom.jsonc",
-        "$HOME/.config/waybar/modules/modules-groups.jsonc"
     ],
+
     "layer": "top",
     "position": "top",
-    "mod": "dock",
-    "exclusive": true,
-    "passthrough": false,
-    "gtk-layer-shell": true,
-    "reload_style_on_change": true,
-    "height": 20,
-    "margin-top": 15,
-    "margin-left": 200,
-    "margin-right": 175,
+    "height": 46,
+    "margin-top": 10,
+    "margin-left": 6,
+    "margin-right": 6,
+    "margin-bottom": 0,
 
     "modules-left": [
         "custom/menu", 
         "hyprland/workspaces",
         "custom/separator#blank_2",
-        "custom/spotify",
+        "custom/weather",
         "custom/separator#blank_2",
-        "custom/cava",
-        "custom/separator#blank_3",
-        "hyprland/window"
+        "tray",
+        "custom/separator#blank",
+        "custom/playerctl",
+        "custom/playerlabel"
     ],
 
     "modules-center": [
-        "clock"
+        "hyprland/window"
     ],
 
-    "modules-right": [        
-        "tray",
+    "modules-right": [
+        "pulseaudio",
+        "clock",
+        "custom/notify",
         "bluetooth",
-        "pulseaudio#audio",
-        "pulseaudio/slider",
-        "group/network",
-        "custom/clipboard",
-        "custom/swaync",
-        "group/power"
-    ],
-
-    "hyprland/workspaces": {
-        "disable-scroll": true,
-        "all-outputs": true,
-        "on-click": "activate",
-        "on-scroll-up": "hyprctl dispatch workspace e-1",
-        "on-scroll-down": "hyprctl dispatch workspace e+1",
-        "format": "{icon}",
-        "format-icons": {
-            "default": ""
-          },
-        "persistent-workspaces": {
-            "1": [],
-            "2": [],
-            "3": []
-        }
-    }
+        "custom/power_btn"
+    ]
 }

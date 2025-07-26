@@ -1,0 +1,184 @@
+* {
+  font-family: "SpaceMono Nerd Font";
+  font-weight: bold;
+  font-size: 14px;
+  min-height: 0;
+}
+
+@define-color background         #242424;
+@define-color foreground         #d5c4a1;
+
+@define-color workspace-current  #bdae93;
+@define-color workspace-empty    #504945;
+@define-color workspace-visible  #665C54;
+
+@define-color border             #505050; /* #454545 */
+@define-color tooltip-border     #707070;
+@define-color module-background  #323232;
+@define-color urgent             #fb4934;
+@define-color white              #ffffff;
+
+/* @import "style/theme.css"; */
+
+window#waybar {
+  background: transparent;
+}
+
+#custom-menu {
+  color:  @foreground;
+  background-color: @background;
+  border-radius: 8px;
+}
+
+#workspaces {
+  background: @background;
+  border-radius: 12px;
+}
+
+#workspaces button {
+  color: @workspace-empty;
+  background-color: rgba(17, 17, 27, 0);
+}
+
+#workspaces button.active {
+  color: @workspace-current;
+  transition: all .3s ease-in-out;
+}
+
+#workspaces button.focused {
+  color: @color8;
+  background: transparent;
+  border: none;
+}
+
+#workspaces button.urgent {
+  color: #11111b;
+  background: transparent;
+  border: none;
+}
+
+#workspaces button:hover {
+  background: transparent;
+  color: @color8;
+  border: none;
+}
+
+#tray {
+  color: @foreground;
+  background: @background;
+  border-radius: 8px;
+}
+
+#custom-weather {
+  color: @foreground;
+  background-color: @background;
+  border-radius: 8px;
+}
+
+#custom-playerctl {
+  color: @foreground;
+  background: @background;
+  font-size: 20px;
+  border-radius: 8px 0 0 8px;
+}
+
+#custom-playerlabel {
+  color: @foreground;
+  background: @background;
+  border-radius: 0 8px 8px 0;
+}
+
+#custom-menu,
+#custom-lock_screen,
+#custom-light_dark,
+#custom-power_btn,
+#custom-weather,
+#custom-updater,
+#custom-system,
+#window,
+#cpu,
+#disk,
+#idle_inhibitor,
+#custom-updates,
+#custom-clipboard,
+#memory,
+#clock,
+#custom-playerctl,
+#custom-playerlabel,
+#bluetooth,
+#pulseaudio,
+#network,
+#tray,
+#temperature,
+#taskbar,
+#custom-notify,
+#battery,
+#mpris,
+#custom-nightlight,
+#hyprland-keyboard,
+#power-profiles-daemon,
+#backlight {
+  color: @foreground;
+  background: @background;
+  padding: 0px 14px;  
+}
+
+#custom-notify {
+  border-radius: 8px;
+}
+#window {
+  border-radius: 8px;
+}
+
+#custom-updater {
+  border-radius: 8px;
+}
+
+#pulseaudio {
+  border-radius: 8px 0 0 8px;
+}
+
+#pulseaudio.microphone {
+  border-radius: 0 8px 8px 0;
+}
+
+#clock {
+  color:  @foreground;
+  background: @background;
+  font-size: 18px;
+  border-radius: 8px;
+}
+
+
+#bluetooth {
+  border-radius: 0 8px 8px 0;
+}
+
+#power-profiles-daemon {
+  border-radius: 8px;
+  padding-right: 20px;
+  padding-left: 15px;
+  /* margin-right: 15px; */
+}
+
+#power-profiles-daemon.performance {
+  color: #fab387;
+  font-size: 15px;
+  padding-right: 18px;
+}
+
+#power-profiles-daemon.balanced {
+  color: #a6e3a1;
+  font-size: 15px;
+  padding-right: 23px;
+}
+
+#power-profiles-daemon.power-saver {
+  color: #89dceb;
+  font-size: 15px;
+}
+
+#custom-power_btn {
+  border-radius: 8px;
+}
+

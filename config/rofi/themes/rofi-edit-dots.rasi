@@ -229,4 +229,3 @@ error-message {
     background-color:            @background;
     text-color:                  @foreground;
 }
-

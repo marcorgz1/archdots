@@ -16,8 +16,18 @@ configuration {
     
 }
 
+* {
+  background:             #1a1a1a;
+  background-selected:    #2a2a2a;
+  selected:               #262626;
+  selected-border:        #666666;
+  text:                   #e0e0e0;
+  subtext:                #808080;
+  foreground:             #d5c4a1;
+}
+
 /* ---- Load pywal colors (custom wal template) ---- */
-@import "~/.config/rofi/themes/rofi-colors.rasi"
+// @import "~/.config/rofi/themes/rofi-colors.rasi"
 @import "~/.config/rofi/rofi-vars.rasi"
 
 
@@ -112,8 +122,8 @@ button {
 }
 
 button selected {
-    background-color:             @color11;
-    text-color:                   @foreground;
+    background-color:             @foreground;
+    text-color:                   @background;
 }
 
 /* ---- Listview ---- */

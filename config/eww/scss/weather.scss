@@ -1,0 +1,31 @@
+.weather-widget {
+  background-color: rgba(40, 40, 40, 0.9);
+  border-radius: 12px;
+  padding: 10px;
+  color: #ebdbb2;
+  font-family: "JetBrainsMono Nerd Font", monospace;
+}
+
+.weather-icon {
+  font-size: 32px;
+  margin-left: 8px;
+}
+
+.weather-info {
+  margin-left: 32px;
+  margin-bottom: 12px;
+}
+
+.city {
+  font-size: 18px;
+}
+
+.description {
+  font-style: italic;
+  margin-bottom: 12px;
+}
+
+.details {
+  font-size: 14px;
+  margin-top: 5px;
+}

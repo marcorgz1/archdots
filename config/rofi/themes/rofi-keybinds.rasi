@@ -1,7 +1,7 @@
 /* ---- Configuration ---- */
 configuration {
     modi:                       "drun,filebrowser,window,run";
-    font:                       "Fira Code SemiBold 12";
+    font:                       "SpaceMono Nerd Font SemiBold 12";
     show-icons:                 true;
     icon-theme:                 "Tela-circle-dracula";
 	drun-display-format:        "{name}";
@@ -28,7 +28,7 @@ window {
     margin:                       0em; 
     color:                        @foreground;
     border:                       @border-size;
-    border-color:                 @foreground;
+    border-color:                 @active-background;
     border-radius:                @radius;
     cursor:                       "default";
     transparency:                 "real";
@@ -144,7 +144,7 @@ element {
 }
 
 element selected.normal {
-    background-color:            @foreground;
+    background-color:            @selected-normal-background;
     text-color:                  @background;
     border-radius:               @radius;
 }
@@ -160,7 +160,7 @@ element normal.urgent {
 }
 
 element normal.active {
-    background-color:            inherit;
+    background-color:            @selected-normal-background;
     text-color:                  @foreground;
 }
 
@@ -169,13 +169,8 @@ element selected.urgent {
     text-color:                  @foreground;
 }
 
-element selected.normal {
-    background-color:            @selected-normal-background;
-    text-color:                  @foreground;
-}
-
 element selected.active {
-    background-color:            inherit;
+    background-color:            @selected-normal-background;
     text-color:                  @foreground;
 }
 
@@ -236,3 +231,4 @@ error-message {
     background-color:            @background;
     text-color:                  @foreground;
 }
+

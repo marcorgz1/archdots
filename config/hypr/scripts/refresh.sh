@@ -40,5 +40,9 @@ swaync > /dev/null 2>&1 &
 # reload swaync
 swaync-client --reload-config
 
+#reload eww widgets
+sleep 1
+eww reload
+
 exit 0
 

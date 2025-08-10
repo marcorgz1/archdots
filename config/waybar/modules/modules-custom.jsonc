@@ -15,6 +15,9 @@
     "custom/playerctl": {
       "format": "{icon}",
       "return-type": "json",
+      "tooltip": true,
+      "tooltip-format": "Left Click: Previous Track\nMiddle Click: Pause/Play\nRight Click: Next Track",
+      "icon-size": 16,
       "max-length": 64,
       "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
       "on-click-middle": "$HOME/.config/hypr/scripts/media_control.sh --pause",
@@ -23,15 +26,16 @@
       "format-icons": {
         "Playing": "󰒮  󰏥  󰒭",
         "Paused": "󰒮  󰐌  󰒭"
-      },
+      }
     },
 
     "custom/playerlabel": {
-      "format": "<span>󰎇 {} 󰎇</span>",
+      "format": "{}",
       "tooltip": false,
       "return-type": "json",
       "max-length": 48,
       "exec": "playerctl -a metadata --format '{\"text\": \"{{markup_escape(title)}} - {{artist}} \", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",      
+      "on-click": "eww open --toggle music --screen G27Q",
       "format-icons": {
         "Playing": "<span foreground='#E5B9C6'>󰒮 󰐌 󰒭</span>",
         "Paused": "<span foreground='#928374'>󰒮 󰏥 󰒭</span>"
@@ -62,7 +66,7 @@
         "return-type": "json",
         "exec-if": "which swaync-client",
         "exec": "swaync-client -swb",
-        "on-click": "sleep 0.1 && swaync-client -t -sw",
+        "on-click": "eww open notification-center --screen G27Q",
         "on-click-right": "swaync-client -d -sw",
         "escape": true
     },

@@ -95,6 +95,24 @@
 
   // workspaces
   "hyprland/workspaces": {
+    "active-only": false,
+    "all-outputs": true,
+    "format": "{icon}",
+    "show-special": false,
+    "on-click": "activate",
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1",
+    "persistent-workspaces": {
+      "*": 4
+    },
+
+    "format-icons": {
+      "active": "",
+      "default": "\uf111"
+    }
+  },
+
+  "hyprland/workspaces#custom": {
     "on-scroll-up": "hyprctl dispatch workspace e-1",
     "on-scroll-down": "hyprctl dispatch workspace e+1",
     "format": "<span size='7500'>{icon}</span>",

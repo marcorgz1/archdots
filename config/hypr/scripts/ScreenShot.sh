@@ -17,7 +17,6 @@ active_window_path="${dir}/${active_window_file}"
 
 notify_cmd_base="notify-send -t 10000 -A action1=Open -A action2=Delete -h string:x-canonical-private-synchronous:shot-notify"
 notify_cmd_shot="${notify_cmd_base} -i ${iDIR}/picture.png "
-notify_cmd_shot_win="${notify_cmd_base} -i ${iDIR}/picture.png "
 notify_cmd_NOT="notify-send -u low -i ${iDoR}/note.png "
 
 # notify and view screenshot
@@ -25,7 +24,7 @@ notify_view() {
     if [[ "$1" == "active" ]]; then
         if [[ -e "${active_window_path}" ]]; then
 			"${sDIR}/Sounds.sh" --screenshot        
-            resp=$(timeout 5 ${notify_cmd_shot_win} " Screenshot of:" " ${active_window_class} Saved.")
+            resp=$(timeout 5 ${notify_cmd_base} -i ${active_window_path} " Screenshot of:" " ${active_window_class} Saved.")
             case "$resp" in
 				action1)
 					xdg-open "${active_window_path}" &
@@ -41,7 +40,7 @@ notify_view() {
 
     elif [[ "$1" == "swappy" ]]; then
 		"${sDIR}/Sounds.sh" --screenshot
-		resp=$(${notify_cmd_shot} " Screenshot:" " Captured by Swappy")
+		resp=$(${notify_cmd_shot} -i "$tmpfile" " Screenshot:" " Captured by Swappy")
 		case "$resp" in
 			action1)
 				swappy -f - <"$tmpfile"
@@ -162,4 +161,3 @@ else
 fi
 
 exit 0
-

@@ -7,37 +7,35 @@
 
     "layer": "top",
     "position": "top",
-    "height": 46,
-    "margin-top": 8,
+    "exclusive": true,
+    "passthrough": false,    
+    "margin-top": 10,
     "margin-left": 16,
     "margin-right": 16,
 
     "modules-left": [
         "custom/menu",
         "custom/separator#blank_2",
-        "hyprland/workspaces",
+        "hyprland/workspaces#numbers",
         "custom/separator#blank_2",
         "custom/weather",
         "custom/separator#blank_2",
         "tray",
         "custom/separator#blank_2",
-        "custom/playerctl",
         "custom/playerlabel"
     ],
-
+    
     "modules-center": [
-        "custom/notify",
-        "custom/separator#blank_2",
-        "hyprland/window",
+        "clock",
         "custom/separator#blank_2",
         "custom/updater"
     ],
-
+    
     "modules-right": [
         "pulseaudio",
         "pulseaudio#microphone",
         "custom/separator#blank_2",
-        "clock",
+        "custom/notify",        
         "custom/separator#blank_2",
         "power-profiles-daemon",
         "custom/separator#blank_2",

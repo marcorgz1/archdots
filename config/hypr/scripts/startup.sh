@@ -11,14 +11,14 @@ FPS=144
 TYPE="grow"
 ANGLE=30
 DURATION=2
-STEP=100
-SWWW_PARAMS="--transition-step $STEP --transition-fps $FPS --transition-type $TYPE --transition-angle $ANGLE --transition-duration $DURATION"
+BEZIER=".43,1.19,1,.4"
+SWWW_PARAMS="--transition-bezier $BEZIER --transition-fps $FPS --transition-type $TYPE --transition-angle $ANGLE --transition-duration $DURATION"
 
-# if [[ -f "$wallpaper" ]]; then
-#     swww query || swww-daemon && swww img ${wallpaper} $SWWW_PARAMS
-# else
-#     "$scripts_dir/Wallpaper.sh"
-# fi
+if [[ -f "$wallpaper" ]]; then
+    swww query || swww-daemon && swww img ${wallpaper} $SWWW_PARAMS
+else
+    "$scripts_dir/Wallpaper.sh"
+fi
 
 # if openbangla keyboard is installed, the
 if [[ -d "/usr/share/openbangla-keyboard" ]]; then
@@ -26,7 +26,7 @@ if [[ -d "/usr/share/openbangla-keyboard" ]]; then
 fi
 
 "$scripts_dir/notification.sh" sys
-"$scripts_dir/wallcache.sh"
+# "$scripts_dir/wallcache.sh"
 # "$scripts_dir/pywal.sh"
 "$scripts_dir/system.sh" run &
 

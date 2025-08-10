@@ -1,0 +1,90 @@
+(defwidget sep []
+  (box :class "sep" :vexpand false :hexpand false :width 2))
+
+
+(defwidget workspaces []
+    (eventbox :onscroll "~/.config/eww/scripts/change_active_workspace.sh {} ${current_workspace}"
+        (box :orientation "h" :space-evenly false :class "workspaces" :hexpand true
+            (for workspace in workspaces
+                (button 
+                    :class "workspace ${current_workspace == workspace.id ? "current" : ""}" 
+                    :onclick "hyprctl dispatch workspace ${workspace.id}" 
+                    ""
+                )
+            )
+        )
+    )
+)
+
+
+(defwidget window_title []
+  (box :class "title"
+    (label :text title :limit-width 48 :halign "start")))
+
+(defwidget clock []
+  (box :class "clock"
+    (label :text time_bar)))
+
+(defwidget media_widget []
+  (button :class "media"
+    :onclick "playerctl play-pause"
+    (label :text media)))
+
+(defwidget volume_widget []
+  (box :class "volume" :spacing 6
+    (button :class "vol-icon"
+            :onclick "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+            (label :text volume))
+    (label :text volume)))
+
+(defwidget network_widget []
+  (button :class "network"
+          :onclick "nm-connection-editor"
+          (label :text net)))
+
+(defwidget power_menu []
+  (box :class "power" :spacing 10
+    (button :class "pbtn" :onclick "hyprctl dispatch exit" (label :text ""))
+    (button :class "pbtn" :onclick "systemctl suspend" (label :text "⏾"))
+    (button :class "pbtn" :onclick "systemctl reboot"  (label :text ""))
+    (button :class "pbtn" :onclick "systemctl poweroff" (label :text ""))))
+
+;; ------------------------------------------------------------
+;; BAR COMPOSITION
+;; ------------------------------------------------------------
+
+(defwidget left []
+  (box :class "left" :spacing gap
+    (workspaces)
+    (sep)
+    (window_title)))
+
+(defwidget center []
+  (box :class "center"
+    (clock)))
+
+(defwidget right []
+  (box :class "right" :spacing gap
+    (media_widget)
+    (sep)
+    (volume_widget)
+    (sep)
+    (network_widget)    
+    (sep)
+    (power_menu)))
+
+(defwindow bar
+  :monitor 0
+  :geometry (geometry 
+                :x "0" 
+                :y "6" 
+                :width "90%" 
+                :height 12
+                :anchor "top center")
+  :stacking "fg"
+  :exclusive true
+  :focusable false
+  (centerbox :class "bar"
+    (left)
+    (center)
+    (right)))

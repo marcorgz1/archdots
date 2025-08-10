@@ -1,0 +1,43 @@
+.resources {
+  background-color: $bg;
+  padding: 8px;
+  border-radius: 12px;
+}
+
+.memory-bar trough, 
+.temperature-bar trough, 
+.storage-bar trough, 
+.battery-bar trough, 
+.cpu-bar trough {
+  background-color: mix($bg, $fg, 70%);
+  border-radius: 8px;
+  min-width: 32px;
+  min-height: 100px;
+  margin: 6px;
+}
+
+.memory-bar trough progress {
+  background: linear-gradient(to right, $blue, lighten($blue, 20%));
+}
+.storage-bar trough progress {
+  background-color: mix($magenta, $fg, 85%);
+}
+
+.cpu-bar trough progress {
+  background-color: mix($yellow, $fg, 100%);
+}
+
+.temperature-bar trough progress {
+  background-color: mix($green, $fg, 100%);
+}
+
+/* Slightly rounded bars */
+.memory-bar trough progress, 
+.temperature-bar trough progress, 
+.storage-bar trough progress, 
+.battery-bar trough progress, 
+.cpu-bar trough progress {
+  min-width: 32px;
+  min-height: 6px;
+  border-radius: 6px;
+}

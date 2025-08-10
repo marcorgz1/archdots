@@ -2,10 +2,10 @@
 
 # You need to get an API key from OpenWeatherMap
 # Sign up at https://openweathermap.org/ and get a free API key
-API_KEY="416adffa17f5148fbb1a6dd05fa2f9a7"
+API_KEY="6b47e42d51c2fece39e88da4a2c58619"
 
 # Your city (change this)
-# CITY=""
+CITY="Valdemoro"
 
 # You can specify city ID instead for more accuracy
 CITY_ID="3106868"
@@ -13,9 +13,9 @@ CITY_ID="3106868"
 # Fetch weather data
 get_weather() {
     # Use city name or ID based on what's provided
-    if [[ -n "$CITY" && "$CITY" != "YOUR_CITY_HERE" ]]; then
+    if [[ -n "$CITY" ]]; then
         weather=$(curl -sf "https://api.openweathermap.org/data/2.5/weather?q=$CITY&appid=$API_KEY&units=metric")
-    elif [[ -n "$CITY_ID" && "$CITY_ID" != "YOUR_CITY_ID_HERE" ]]; then
+    elif [[ -n "$CITY_ID" ]]; then
         weather=$(curl -sf "https://api.openweathermap.org/data/2.5/weather?id=$CITY_ID&appid=$API_KEY&units=metric")
     else
         echo "Error: Please set your city or city ID in the weather.sh script"
@@ -57,4 +57,3 @@ get_weather() {
 }
 
 get_weather
-

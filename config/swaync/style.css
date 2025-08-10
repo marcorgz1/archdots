@@ -68,8 +68,8 @@
 }
 
 .control-center .notification-row .notification-background .notification > *:last-child > * .notification-action {
-  background: alpha(@background, .6);
-  color: @foreground;
+  background: @foreground;
+  color: @background;
   border-radius: 12px;
   margin: 6px;
 }
@@ -85,9 +85,9 @@
  /* Buttons */
 
 .control-center .notification-row .notification-background .close-button {
-  background: transparent;
+  background: @foreground;
   border-radius: 6px;
-  color: @foreground;
+  color: @background;
   margin: 0px;
   padding: 4px;
 }

@@ -6,6 +6,11 @@
   font-weight: bold;
 }
 
+@import "colors.scss";
+
+@import "scss/bar.scss";
 @import "scss/datetime.scss";
 @import "scss/weather.scss";
-@import "scss/bar.scss";
+@import "scss/player.scss";
+@import "scss/media-player.scss";
+@import "scss/resources-monitor.scss";

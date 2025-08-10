@@ -35,9 +35,9 @@ show_music_notification() {
     song_artist=$(playerctl metadata artist)
     
     if [[ "$status" == "Playing" ]]; then
-        notify-send -e -u low -i "$music_icon" "Now Playing:" "$song_title"$'\n'"by $song_artist"
-    elif [[ "$status" == "Paused" ]]; then
         notify-send -e -u low -i "$music_icon" "Paused:" "$song_title"$'\n'"by $song_artist"
+    elif [[ "$status" == "Paused" ]]; then
+        notify-send -e -u low -i "$music_icon" "Now Playing:" "$song_title"$'\n'"by $song_artist"
     else
         notify-send -e -u low -i "$music_icon" "Playback Status" "$status"
     fi

@@ -1,4 +1,47 @@
+;;;;; Variables ;;;;;;
+(defvar music-control false)
+(defvar padding 8)
+(defvar radius 12)
+(defvar gap 8)
+(defvar bar_height 36)
+(defvar icon_font "SpaceMono Nerd Font")
+(defvar text_font "Iosevka Term")
+(defvar fontsize 14)
+;;;;;;;;;;;;;;;;;;;;;
+
+
+;;;;; Deflistens ;;;;;
+(deflisten music :initial "" "playerctl --player=kew --follow metadata --format '{{ title }}' || true")
+(deflisten artist :initial "" "playerctl --player=kew --follow metadata --format '{{ artist }}' || true")
+(deflisten current-music-cover :initial "" "playerctl --player=kew --follow metadata --format {{mpris:artUrl}}")
+
+(deflisten current_workspace :initial "1"
+"~/.config/eww/scripts/get_active_workspace.sh")
+(deflisten workspaces :initial "[{'window'}]"
+"~/.config/eww/scripts/workspaces.sh")
+;;;;;;;;;;;;;;;;;;;;;;
+
+;;;;; Defpolls ;;;;;
+(defpoll current-music-seek :interval "1s" "~/.config/eww/scripts/get-music-seek.sh")
+(defpoll current-memory :interval "10s" :initial "0" "~/.config/eww/scripts/get-memory.sh")
+(defpoll current-temperature :interval "10s" :initial "0" "~/.config/eww/scripts/get-temperature.sh")
+(defpoll current-cpu :interval "10s" :initial "0" "~/.config/eww/scripts/get-cpu.sh")
+(defpoll current-disk :interval "1m" :initial "0" "~/.config/eww/scripts/get-disk.sh")
+(defpoll current-disk-detail :interval "1m" :initial "0" "~/.config/eww/scripts/get-disk-detail.sh")
+(defpoll current-memory-detail :interval "10s" :initial "0" "~/.config/eww/scripts/get-memory-detail.sh")
+
+(defpoll title :interval "1s" "bash ~/.config/eww/scripts/window_title.sh")
+(defpoll time_bar :interval "1s" "date '+%a %d %b  %H:%M:%S'")
+(defpoll media :interval "2s" "bash ~/.config/eww/scripts/media.sh")
+(defpoll volume :interval "1s" "bash ~/.config/eww/scripts/volume.sh")
+(defpoll net :interval "5s" "bash ~/.config/eww/scripts/network.sh")
+;;;;;;;;;;;;;;;;;;;;;;
+
+
+;;;;; Widgets ;;;;;
+(include "widgets/bar.yuck")
 (include "widgets/datetime.yuck")
 (include "widgets/weather.yuck")
-(include "widgets/bar.yuck")
-
+(include "widgets/player.yuck")
+(include "widgets/media-player.yuck")
+(include "widgets/resources-monitor.yuck")

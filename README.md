@@ -1,4 +1,4 @@
-# My Hyprland Setup ❤️
+## My Hyprland Setup ❤️
 
 My personal dotfiles for Hyprland on Arch Linux.
 
@@ -9,4 +9,4 @@ My personal dotfiles for Hyprland on Arch Linux.
 
 ## Showcase
 
-**In progress...**
+![rice first pic](./assets/pic1.png)

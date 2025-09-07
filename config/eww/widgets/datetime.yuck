@@ -23,11 +23,11 @@
 
 (defwindow datetime
   :monitor 0
-  :geometry (geometry :x "20px"
+  :geometry (geometry :x "100px"
                       :y "120px"
                       :width "600px"
                       :height "150px"
-                      :anchor "top right")
+                      :anchor "top left")
   :stacking "bg"
   :exclusive false
   :focusable false

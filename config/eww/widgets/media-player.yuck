@@ -38,8 +38,8 @@
 (defwindow media-player
   :monitor 0
   :geometry (geometry 
-                :x "140px" 
-                :y "520px"
+                :x "120px" 
+                :y "380px"
                 :width "400px"
                 :height "100px"
                 :anchor "top right")

@@ -16,10 +16,10 @@ printf "\n"
 
 # asking for confirmation.
 choice=$(gum confirm "Would you like to," \
-        --prompt.foreground "#c2c1c0" \
+        --prompt.foreground "#ccc9c3" \
         --affirmative "Update now!" \
-        --selected.background "#c2c1c0" \
-        --selected.foreground "#0E0906" \
+        --selected.background "#ccc9c3" \
+        --selected.foreground "#0f0d0a" \
         --negative "Skip updating!"
         )
 
@@ -41,7 +41,7 @@ if [ $? -eq 0 ]; then
 else
     gum spin \
         --spinner dot \
-        --spinner.foreground "#c2c1c0" \
+        --spinner.foreground "#ccc9c3" \
         --title "Skipping updating your system..." -- \
         sleep 2
 fi

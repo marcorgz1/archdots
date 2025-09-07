@@ -14,11 +14,6 @@
 (deflisten music :initial "" "playerctl --player=kew --follow metadata --format '{{ title }}' || true")
 (deflisten artist :initial "" "playerctl --player=kew --follow metadata --format '{{ artist }}' || true")
 (deflisten current-music-cover :initial "" "playerctl --player=kew --follow metadata --format {{mpris:artUrl}}")
-
-(deflisten current_workspace :initial "1"
-"~/.config/eww/scripts/get_active_workspace.sh")
-(deflisten workspaces :initial "[{'window'}]"
-"~/.config/eww/scripts/workspaces.sh")
 ;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;;; Defpolls ;;;;;
@@ -39,7 +34,6 @@
 
 
 ;;;;; Widgets ;;;;;
-(include "widgets/bar.yuck")
 (include "widgets/datetime.yuck")
 (include "widgets/weather.yuck")
 (include "widgets/player.yuck")

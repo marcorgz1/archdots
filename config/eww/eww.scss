@@ -1,5 +1,3 @@
-@import "/home/marco1/.cache/wal/colors.scss";
-
 * {
   all: unset;
   font-family: "SpaceMono Nerd Font";
@@ -8,7 +6,6 @@
 
 @import "colors.scss";
 
-@import "scss/bar.scss";
 @import "scss/datetime.scss";
 @import "scss/weather.scss";
 @import "scss/player.scss";

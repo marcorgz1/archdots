@@ -76,9 +76,9 @@
 ;; resource-monitor ;;
 (defwindow resources-monitor
   :monitor '[1, 0]'
-  :geometry (geometry :x "120px"
-                      :y "700px"
-                      :width "350px"
+  :geometry (geometry :x "220px"
+                      :y "550px"
+                      :width "100px"
                       :height "150px"
                       :anchor "top right")
   :stacking "bg"

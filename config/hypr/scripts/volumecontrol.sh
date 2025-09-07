@@ -1,6 +1,6 @@
 #!/bin/bash
 
-iDIR="$HOME/.config/swaync/icons/vol"
+iDIR="$HOME/.config/swaync/icons"
 
 # Get Volume
 get_volume() {
@@ -74,7 +74,7 @@ notify_user() {
     if [[ "$(get_volume)" == "Muted" ]]; then
         notify-send -e -h string:x-canonical-private-synchronous:volume_notif -u low "Volume: Muted"
     else
-        notify-send -e -h int:value:"$(get_volume | sed 's/%//')" -h string:x-canonical-private-synchronous:volume_notif -u low "Volume: $(get_volume)"
+        notify-send -e -h int:value:"$(get_volume | sed 's/%//')" -h string:x-canonical-private-synchronous:volume_notif -i "$iDIR/volume.png" -u low "Volume: $(get_volume)"
     fi
 }
 
@@ -83,7 +83,7 @@ inc_volume() {
     if [ "$(pamixer --get-mute)" == "true" ]; then
         pamixer -u && notify_user
     fi
-    pamixer -i 5 && notify_user
+    pamixer -i 1 && notify_user
 }
 
 # Decrease Volume
@@ -91,15 +91,15 @@ dec_volume() {
     if [ "$(pamixer --get-mute)" == "true" ]; then
         pamixer -u && notify_user
     fi
-    pamixer -d 5 && notify_user
+    pamixer -d 1 && notify_user
 }
 
 # Toggle Mute
 toggle_mute() {
     if [ "$(pamixer --get-mute)" == "false" ]; then
-        pamixer -m && notify-send -a -h -i "$iDIR/muted-speaker.svg" "Volume Muted"
+        pamixer -m && notify-send -a -h -i "$iDIR/volume-muted.svg" "Volume Muted"
     elif [ "$(pamixer --get-mute)" == "true" ]; then
-        pamixer -u && notify-send -a -h -i "$iDIR/unmuted-speaker.svg" "Volume ON"
+        pamixer -u && notify-send -a -h -i "$iDIR/volume.png" "Volume ON"
     fi
 }
 

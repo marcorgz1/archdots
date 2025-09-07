@@ -13,7 +13,6 @@
         :orientation "v"
         :space-evenly false
         (label :class "temperature" :text "${weather.temperature}°C")
-        (label :class "city" :text "${weather.city}")
       )
     )
     (label :class "description" :text "${weather.description}")
@@ -29,7 +28,7 @@
 (defwindow weather
   :monitor 0
   :geometry (geometry :x "150px"
-                      :y "300px"
+                      :y "150px"
                       :width "320px"
                       :height "150px"
                       :anchor "top right")

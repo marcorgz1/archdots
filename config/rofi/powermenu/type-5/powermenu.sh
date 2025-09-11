@@ -16,23 +16,23 @@ theme='style-1'
 # CMDs
 lastlogin="`last $USER | head -n1 | tr -s ' ' | cut -d' ' -f5,6,7`"
 uptime="`uptime -p | sed -e 's/up //g'`"
-host=`hostname`
+host=$(hostname)
 
 # Options
-hibernate=''
-shutdown=''
-reboot=''
-lock=''
-suspend=''
-logout=''
-yes=''
-no=''
+hibernate='󰏦'
+shutdown='󰐥'
+reboot=''
+lock='󰌾'
+suspend=''
+logout='󰍃'
+yes=''
+no=''
 
 # Rofi CMD
 rofi_cmd() {
 	rofi -dmenu \
-		-p " $USER@$host" \
-		-mesg " Last Login: $lastlogin |  Uptime: $uptime" \
+		-p "  $USER@$host" \
+		-mesg "󰍹   Last Login: $lastlogin |    Uptime: $uptime" \
 		-theme ${dir}/${theme}.rasi
 }
 

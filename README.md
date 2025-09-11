@@ -1,12 +1,16 @@
-## My Hyprland Setup ❤️
+## My Hyprland Rice
 
-My personal dotfiles for Hyprland on Arch Linux.
+My personal, simple and functional dotfiles for Hyprland window manager.
 
-Setup powered by [Matugen](https://github.com/InioX/matugen)
+Most of the modules are powered by [Matugen](https://github.com/InioX/matugen)
 
 - **Terminal:** [Kitty](https://github.com/kovidgoyal/kitty)
 - **Shell:** [Zsh](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH)
+- **Bar:** [Waybar](https://github.com/Alexays/Waybar)
+- **App launcher:** [Rofi](https://github.com/davatorium/rofi)
 
-## Showcase
+## Preview
 
-![rice first pic](./assets/1.png)
+![rice pic](./assets/1.png)
+
+

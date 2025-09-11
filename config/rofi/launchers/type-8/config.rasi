@@ -1,22 +1,14 @@
 configuration {
-	modi:                       "drun";
+    drun-display-format: "{icon} {name}";
     show-icons:                 true;
-    display-drun:               "  Apps ";
-	drun-display-format:        "{name}";
 	hover-select:				false;
 	me-select-entry:			"MousePrimary";
 	me-accept-entry:			"!MousePrimary";
 	font:						"SpaceMono Nerd Font Semibold 12";
 }
 
-* {
-  background:             #1a1a1a;
-  background-selected:    #2a2a2a;
-  selected:               #262626;
-  selected-border:        #515151ff;
-  text:                   #e0e0e0;
-  subtext:                #808080;
-}
+/*****----- Global Properties -----*****/
+@import  "~/.config/rofi/themes/rofi-colors.rasi"
 
 window {
     transparency:                "real";
@@ -32,8 +24,8 @@ window {
     padding:                     0px;
     border:                      1px solid;
     border-radius:               8px;
-    border-color:                @selected-border;
-    background-color:            @background;
+    border-color:                @secondary;
+    background-color:            @on-secondary-fixed;
     cursor:                      "pointer";
 }
 
@@ -45,7 +37,7 @@ mainbox {
     border:                      0px solid;
     border-radius:               0px;
     background-color:            transparent;
-    children:                    [ "inputbar", "listview" ];
+    children:                    [ "inputbar", "listview", "mode-switcher" ];
 }
 
 inputbar {
@@ -55,9 +47,9 @@ inputbar {
     padding:                     5px;
     border:                      1px solid;
     border-radius:               6px;
-    border-color:                @selected-border;
-    background-color:            @background-selected;
-    text-color:                  @text;
+    border-color:                @secondary;
+    background-color:            @on-secondary-fixed;
+    text-color:                  @on-surface;
     children:                    [ "prompt", "entry" ];
 }
 
@@ -71,7 +63,7 @@ prompt {
 entry {
     enabled:                     true;
     background-color:            transparent;
-    text-color:                  @subtext;
+    text-color:                  @on-surface;
     cursor:                      text;
     placeholder:                 "Search";
 }
@@ -90,25 +82,25 @@ element {
     spacing:                     0px;
     margin:                      0px;
     padding:                     5px;
-    border:                      0px solid;
+    border:                      0px;
     border-radius:               0px;
-    border-color:                @selected;
+    border-color:                @secondary;
     background-color:            transparent;
-    text-color:                  @subtext;
+    text-color:                  @on-surface;
     orientation:                 horizontal;
     cursor:                      pointer;
 }
 
 element normal.normal {
     background-color:            transparent;
-    text-color:                  @subtext;
+    text-color:                  @on-surface;
 }
 element selected.normal {
-    border:                      1px solid;
+    border:                      0px;
     border-radius:               6px;
-    border-color:                @selected-border;
-    background-color:            @background-selected;
-    text-color:                  @text;
+    border-color:                @secondary;
+    background-color:            @primary;
+    text-color:                  @scrim;
 }
 element-icon {
     background-color:            transparent;
@@ -128,17 +120,41 @@ error-message {
     padding:                     10px;
     border:                      0px solid;
     border-radius:               0px;
-    border-color:                @selected;
-    background-color:            @background;
+    border-color:                @secondary;
+    background-color:            @primary-container;
     text-color:                  @text;
 }
+
 textbox {
-    background-color:            @background;
+    background-color:            @primary-container;
     text-color:                  @text;
     vertical-align:              0.5;
     horizontal-align:            0.0;
     highlight:                   none;
 }
 
-// vim:ft=scss
+mode-switcher {
+    orientation:                 horizontal;
+    width:                       6.6em;
+    enabled:                     true;
+    padding:                     1.5em;
+    spacing:                     1.5em;
+    background-color:            transparent;
+}
+
+button {
+    padding:                     15px;
+    border-radius:               2em;
+    border:                      0;    
+    cursor:                      pointer;
+    background-color:            @surface;
+    text-color:                  @on-surface;
+}
+
+button selected {
+    padding:                     15px;
+    border-radius:               2em;    
+    text-color:                  @scrim;
+    background-color:            @primary;
+}
 

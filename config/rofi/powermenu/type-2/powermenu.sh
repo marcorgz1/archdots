@@ -12,20 +12,20 @@
 
 # Current Theme
 dir="$HOME/.config/rofi/powermenu/type-2"
-theme='style-2'
+theme='style-4'
 
 # CMDs
 uptime="`uptime -p | sed -e 's/up //g'`"
 host=`hostname`
 
 # Options
-shutdown=''
-reboot=''
-lock=''
-suspend=''
-logout=''
-yes=''
-no=''
+shutdown='󰐥'
+reboot=''
+lock=''
+suspend=''
+logout='󰍃'
+yes=''
+no='󰅚'
 
 # Rofi CMD
 rofi_cmd() {
@@ -71,10 +71,10 @@ run_cmd() {
 			amixer set Master mute
 			systemctl suspend
 		elif [[ $1 == '--logout' ]]; then
-			if [[ "$DESKTOP_SESSION" == 'openbox' ]]; then
+			if [[ "$DESKTOP_SESSION" == 'hyprland' ]]; then
+				hyprctl dispatch exit 0
+			elif [[ "$DESKTOP_SESSION" == 'openbox' ]]; then
 				openbox --exit
-            elif [[ "$DESKTOP_SESSION" == 'hyprland' ]]; then
-                hyprctl dispatch exit
 			elif [[ "$DESKTOP_SESSION" == 'bspwm' ]]; then
 				bspc quit
 			elif [[ "$DESKTOP_SESSION" == 'i3' ]]; then

@@ -6,6 +6,7 @@ Most of the modules are powered by [Matugen](https://github.com/InioX/matugen)
 
 - **Terminal:** [Kitty](https://github.com/kovidgoyal/kitty)
 - **Shell:** [Zsh](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH)
+- **Widgets:** [Eww](https://github.com/elkowar/eww)
 - **Bar:** [Waybar](https://github.com/Alexays/Waybar)
 - **App launcher:** [Rofi](https://github.com/davatorium/rofi)
 

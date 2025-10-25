@@ -1,13 +1,7 @@
 * {
   all: unset;
-  font-family: "SpaceMono Nerd Font";
+  font-family: "ProFont IIx Nerd Font";
   font-weight: bold;
 }
 
-@import "colors.scss";
-
 @import "scss/datetime.scss";
-@import "scss/weather.scss";
-@import "scss/player.scss";
-@import "scss/media-player.scss";
-@import "scss/resources-monitor.scss";

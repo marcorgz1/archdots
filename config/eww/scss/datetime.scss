@@ -1,32 +1,21 @@
+@import "/home/marco1/.cache/wal/colors.scss";
+
 .datetime-widget {
-  background: #242424;
+  background: transparent;
   border-radius: 12px;
   padding: 10px 20px;
-  color: #d5c4a1;
-  font-family: "SpaceMono Nerd Font";
-
+  
   .time-text {
-    font-size: 96px;
+    color: $foreground;
+    font-size: 110px;
     font-weight: bold;
     margin-bottom: 2px;
   }
-
+  
   .date-text {
-    font-size: 18px;
+    color: $color14;
+    font-size: 14px;
     font-weight: bold;
-  }
-
-  .system-stats {
-    margin-top: 16px;
-
-    .cpu-text, .ram-text, .disk-text {
-      font-size: 14px;
-      padding: 0 6px;
-    }
-
-    .disk-text {
-      margin-top: 8px;
-    }
   }
 }
 

@@ -1,3 +1,11 @@
+(defpoll time :interval "1s"
+  :initial "00:00"
+  `date +%H:%M:%S`)
+
+(defpoll date :interval "1m"
+  :initial "January 01"
+  `date "+%A, %d %B"`)
+
 (defwidget datetime []
   (box :class "datetime-widget"
        :orientation "v"
@@ -11,23 +19,18 @@
     (box :class "date"
       :orientation "v"
       :space-evenly true
-      (label :text date :class "date-text"))))
+      (label :text date :class "date-text"))
+  )
+)
 
-(defpoll time :interval "1s"
-  :initial "00:00"
-  `date +%H:%M`)
-
-(defpoll date :interval "1m"
-  :initial "January 01"
-  `date "+%A, %d %B"`)
 
 (defwindow datetime
   :monitor 0
-  :geometry (geometry :x "100px"
+  :geometry (geometry :x "20px"
                       :y "120px"
-                      :width "600px"
+                      :width "650px"
                       :height "150px"
-                      :anchor "top left")
+                      :anchor "bottom right")
   :stacking "bg"
   :exclusive false
   :focusable false

@@ -4,6 +4,7 @@
 SOUND_FILE_UPDATE="$HOME/.config/hypr/sounds/update.wav"
 SOUND_FILE_SYSTEM="$HOME/.config/hypr/sounds/system-startup.wav"
 SOUND_FILE_LOGOUT="$HOME/.config/hypr/sounds/poweroff.mp3"
+hyprlandIcon="$HOME/.config/swaync/icons/hyprland.png"
 
 # Function to send notification and play sound
 notify_with_sound() {
@@ -12,7 +13,7 @@ notify_with_sound() {
 }
 
 startup_with_sound() {
-    notify-send "Welcome to Hyprland! 💫"
+    notify-send -i "$hyprlandIcon" "Welcome to Hyprland! 💫"
     paplay "$SOUND_FILE_SYSTEM"
 }
 

@@ -18,7 +18,7 @@
 #             the wallpapers included in the theme you are in.
 
 # Set dir varialable
-wall_dir="$HOME/.config/hypr/Wallpaper"
+wall_dir="$HOME/Pictures/Wallpapers"
 cacheDir="$HOME/.cache/wallcache"
 scriptsDir="$HOME/.config/hypr/scripts"
 wallpaperIcon="$HOME/.config/swaync/icons/wallpaper.png"
@@ -92,34 +92,32 @@ wall_selection=$(find "${wall_dir}" -type f \( -iname "*.jpg" -o -iname "*.jpeg"
         fi
     done | $rofi_command)
 
-# SWWW Config
+# swww transition config
 FPS=60
-TYPE="any"
+TYPE="center"
 DURATION=2
 BEZIER=".43,1.19,1,.4"
-SWWW_PARAMS="--transition-fps $FPS --transition-type $TYPE --transition-duration $DURATION"
+SWWW_PARAMS="--transition-fps $FPS --transition-type $TYPE --transition-duration $DURATION --transition-bezier $BEZIER"
 
 # initiate swww if not running
 swww query || swww-daemon --format xrgb
 
-# Set wallpaper only if a new one is selected
-if [[ -n "$wall_selection" ]]; then
-    current_wall=$(swww query | grep -oP '(?<=image: ).*')
-    new_wall="${wall_dir}/${wall_selection}"
+# Set wallpaper
+if [[ -n "$wall_selection" ]]; then 
+  swww img "${wall_dir}/${wall_selection}" $SWWW_PARAMS
+  wal -i "${wall_dir}/${wall_selection}"
+  matugen image "${wall_dir}/${wall_selection}"
 
-    if [[ "$current_wall" != "$new_wall" ]]; then
-        swww img -o "$focused_monitor" "$new_wall" $SWWW_PARAMS
+  sleep 0.5
+  eww kill
+  eww daemon &
+  eww open media_player --screen G27Q
+  eww open datetime --screen G27Q
 
-        # Save a copy of the current wallpaper into cache
-        file_ext="${new_wall##*.}"
-        cp "$new_wall" "$cacheDir/current_wall.$file_ext"
 
-        # Run matugen script
-        sleep 0.5
-        matugen image "$new_wall"
-        hyprctl reload
+  hyprctl reload
+  pkill -SIGUSR1 btop
 
-        sleep 0.5
-        notify-send -i "$wallpaperIcon" "Wallpaper Changed"
-    fi
+  sleep 0.5
+  notify-send -i "$wallpaperIcon" "Wallpaper changed" "${wall_dir}/${wall_selection}"
 fi

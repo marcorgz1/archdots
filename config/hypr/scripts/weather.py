@@ -63,7 +63,7 @@ city = weather['nearest_area'][0]['areaName'][0]['value']
 
 
 data['text'] = WEATHER_CODES[weather['current_condition'][0]['weatherCode']] + \
-    " "+weather['current_condition'][0]['FeelsLikeC']+"°" + " " +city
+    " "+weather['current_condition'][0]['FeelsLikeC']+"°C"
 
 data['tooltip'] = "Madrid"
 

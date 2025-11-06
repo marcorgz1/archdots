@@ -8,7 +8,7 @@ get_volume() {
     if [[ "$volume" -eq "0" ]]; then
         echo "Muted"
     else
-        echo "$volume %"
+        echo "$volume%"
     fi
 }
 

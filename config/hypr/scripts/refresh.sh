@@ -19,9 +19,6 @@ for _prs in "${_ps[@]}"; do
     fi
 done
 
-# added since wallust sometimes not applying
-killall -SIGUSR2 waybar 
-
 # quit ags & relaunch ags
 #ags -q && ags &
 
@@ -43,6 +40,10 @@ swaync-client --reload-config
 #reload eww widgets
 sleep 1
 eww reload
+
+# notify that hyprland has already been reloaded
+sleep 0.5
+notify-send -u low "Hyprland reload"
 
 exit 0
 

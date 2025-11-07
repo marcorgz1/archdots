@@ -16,9 +16,9 @@
   },
 
   "bluetooth": {
-    "format": "󰂯 ",
+    "format": "󰂯",
     "format-disabled": "󰂳 Inactive",
-    "format-connected": "󰂱 Active: {num_connections}",
+    "format-connected": "󰂱 Connected: {device_alias}",
     "tooltip-format": " {device_alias}",
     "tooltip-format-connected": "Connected to: {device_alias}",
     "tooltip-format-connected-battery": "Connected to: {device_alias}\nBattery: {device_battery_percentage}%",
@@ -95,10 +95,8 @@
 
   // workspaces
   "hyprland/workspaces": {
-    "active-only": false,
     "all-outputs": true,
     "format": "{icon}",
-    "show-special": false,
     "on-click": "activate",
     "on-scroll-up": "hyprctl dispatch workspace e+1",
     "on-scroll-down": "hyprctl dispatch workspace e-1",
@@ -107,8 +105,30 @@
     },
 
     "format-icons": {
-      "active": "",
+      "active": "\uf111",
       "default": "\uf111"
+    }
+  },
+
+  "hyprland/workspaces#kanji": {
+    "disable-scroll": true,
+    "show-special": false,
+    "all-outputs": true,
+    "format": "{icon}",
+    "persistent-workspaces": {
+      "*": 5
+    },
+    "format-icons": {
+      "1": "一",
+      "2": "二",
+      "3": "三",
+      "4": "四",
+      "5": "五",
+      "6": "六",
+      "7": "七",
+      "8": "八",
+      "9": "九",
+      "10": "十"
     }
   },
 
@@ -122,8 +142,7 @@
     "format-icons": {
       "active": "\uf111",
       "default": "\uf111",
-      // "empty": "\uf10c"
-      "empty": "\uf111"
+      "empty": "\uf10c"
     }
   },
 

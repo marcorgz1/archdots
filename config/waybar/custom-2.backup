@@ -6,31 +6,30 @@
     ],
 
     "layer": "top",
-    "position": "top",    
-    "height": 42,
+    "position": "top",
     "exclusive": true,
     "passthrough": false,    
     "margin-top": 10,
-    "margin-left": 400,
-    "margin-right": 400,
+    "margin-left": 16,
+    "margin-right": 16,
     "margin-bottom": 8,
 
     "modules-left": [
         "custom/menu",        
         "clock",
         "custom/weather",
-        "tray"
+        "tray",
+        "custom/playerlabel"
     ],
     
     "modules-center": [
         "hyprland/workspaces"
     ],
     
-    "modules-right": [                
-        "pulseaudio",
-        "custom/music",
+    "modules-right": [
+        "pulseaudio",        
         "custom/hyprpicker",      
-        "custom/notify",
+        "custom/notify",                
         "custom/power_btn"
     ]
 }

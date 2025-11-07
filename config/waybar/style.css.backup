@@ -1,46 +1,36 @@
 @import 'colors.css';
 
 * {
-  font-family: "SpaceMono Nerd Font", "Iosevka";
+  font-family: "BigBlueTerm437 Nerd Font";
   font-weight: bold;
   /* font-size: 14px; */
   min-height: 0;
 }
 
 window#waybar {
-  border-radius: 8px;
-  background: @background;
+  background: transparent;
 }
 
-/* .modules-left, .modules-center, .modules-right {
+.modules-left, .modules-center, .modules-right {
   background-color: @background;
   border-radius: 8px;
   padding: 0.4em 0.6em;
-} */
+}
 
 #custom-menu {
   color:  @tertiary;
-  margin-left: 1.6em;
+  padding: 0 1em; 
 }
 
 /*---------Workspaces-----------------*/
-workspaces {
-  padding: 0 5px;
-}
-
 #workspaces button {	
   color: @surface_bright;
-  margin: 16px 6px;
-  padding: 5px 7px;
-  min-width: 0;
   transition: all .3s ease-in-out;
 }
 
 #workspaces button.active {
-  background-color: @tertiary;
-  padding: 0 8px;
+  color: @tertiary;
   border-radius: 12px;
-  min-width: 25px;
   transition: all .3s ease-in-out;
 }
 
@@ -91,5 +81,4 @@ workspaces {
 
 #custom-power_btn {
   color: @tertiary;
-  margin-right: 1.2em;
 }

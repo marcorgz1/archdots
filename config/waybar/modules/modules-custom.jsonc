@@ -6,40 +6,42 @@
         "format": " ",   // for arch
          // "format": "󰣛",   // for fedora
         // "format": "",  // for opensuse
-        "on-click": "rofi -show drun -theme ~/.config/rofi/launchers/type-8/config.rasi || killall rofi",
+        "on-click": "sherlock || killall sherlock",
         "on-click-right": "kitty --title yazi -e yazi",
         "tooltip": true,
         "tooltip-format": "Left Click: Launch Rofi\nRight Click: Launch yazi"
     },
 
-    "custom/playerctl": {
-      "format": "{icon}",
-      "return-type": "json",
-      "tooltip": true,
-      "tooltip-format": "Left Click: Previous Track\nMiddle Click: Pause/Play\nRight Click: Next Track",
-      "icon-size": 16,
-      "max-length": 64,
-      "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
-      "on-click-middle": "$HOME/.config/hypr/scripts/media_control.sh --pause",
-      "on-click": "playerctl previous",
-      "on-click-right": "playerctl next",
-      "format-icons": {
-        "Playing": "󰒮  󰏥  󰒭",
-        "Paused": "󰒮  󰐌  󰒭"
-      }
+    "custom/playerctl#backward": {
+		"format": "󰙣 ",
+		"on-click": "playerctl previous",
+		"tooltip": false
+	},
+	"custom/playerctl#play": {
+        "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+		"format": "{icon}",
+		"format-icons": {
+            "Paused": "<span> </span>",
+			"Playing": "<span>󰏥 </span>",
+			"Stopped": "<span> </span>"
+		},
+		"on-click": "playerctl -a play-pause",
+		"return-type": "json"
+	},
+    
+    "custom/playerctl#forward": {
+        "format": "󰙡 ",
+        "on-click": "playerctl next",
+        "tooltip": false
     },
-
-    "custom/playerlabel": {
-      "format": "{}",
-      "tooltip": false,
-      "return-type": "json",
-      "max-length": 48,
-      "exec": "playerctl -a metadata --format '{\"text\": \"{{markup_escape(title)}} - {{artist}} \", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",      
-      "on-click": "eww open --toggle music --screen G27Q",
-      "format-icons": {
-        "Playing": "<span foreground='#E5B9C6'>󰒮 󰐌 󰒭</span>",
-        "Paused": "<span foreground='#928374'>󰒮 󰏥 󰒭</span>"
-      },
+    
+    "custom/music": {
+        "format": "󰝚",
+        "tooltip": false,
+        "return-type": "json",
+        "max-length": 48,
+        "exec": "playerctl -a metadata --format '{\"text\": \"{{markup_escape(title)}} - {{artist}} \", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",      
+        "on-click": "eww open --toggle media_player"
     },
 
     // power menu ( universal )
@@ -52,7 +54,7 @@
     "custom/notify": {
         "tooltip": true,
         "tooltip-format": "Left Click: Launch Notification Center\nRight Click: Do not Disturb",
-        "format": "{icon}",
+        "format": "{} {icon}",
         "format-icons": {
             "notification": "<span foreground='red'><sup></sup></span>",
             "none": "",
@@ -64,11 +66,16 @@
             "dnd-inhibited-none": ""
         },
         "return-type": "json",
-        "exec-if": "which swaync-client",
         "exec": "swaync-client -swb",
-        "on-click": "eww open notification-center --screen G27Q",
-        "on-click-right": "swaync-client -d -sw",
-        "escape": true
+        "on-click": "swaync-client -t",
+        "on-click-right": "swaync-client -d"
+    },
+
+    "custom/hyprpicker": {
+	    "format": "",
+	    "on-click": "hyprpicker | wl-copy",
+	    "tooltip": true,
+	    "tooltip-format": "Hyprpicker"
     },
 
     // System updater ( works for arch, fedora and opensuse also. )
@@ -102,7 +109,7 @@
    "custom/weather": { 
         "interval": 1000,
         "return-type": "json",
-        "exec": "~/.config/hypr/scripts/weather.py",
+        "exec": "~/.config/hypr/scripts/weather.py"
         //"exec": "~/.config/waybar/scripts/Weather.py",
     },
 

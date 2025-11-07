@@ -18,8 +18,6 @@
 @define-color urgent             #fb4934;
 @define-color white              #ffffff;
 
-/* @import "style/theme.css"; */
-
 window#waybar {
   background: @background;
   border: 3px solid @border;
